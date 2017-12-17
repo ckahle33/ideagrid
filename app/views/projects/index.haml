@@ -1,0 +1,36 @@
+.row.hero
+  .twelve-col
+    %h1
+      %span.white
+        ProjectScout
+      connects 🔗 developers to organizations that need help.
+
+.row.container
+  .three-col
+    %h3
+      Tags
+    %ul
+      - [*1..6].each do |i|
+        %li.tag
+          tag
+          = i
+
+  .nine-col
+    %h3
+      Projects
+    - if @projects
+      - @projects.each do |p|
+        .project
+          %h2.title
+            = p.title
+          %small.org
+            = p.organization
+          %small.created
+            = p.created_at.strftime('%b %d, %Y')
+          %br
+          - p.tags.each do |tag|
+            %small.tag
+              = tag.name
+          %hr
+          %small.description
+            = p.description

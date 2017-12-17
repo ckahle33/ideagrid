@@ -1,0 +1,16 @@
+.six-col
+  = form_for Project.new do |p|
+    .form-group
+      = p.label :title
+      = p.text_field :title
+    .form-group
+      = p.label :organization
+      = p.text_field :organization
+    .form-group
+      = p.label :budget
+      = p.number_field :budget
+    .form-group
+      = p.label :description
+      = p.text_area :description
+    .form-group
+      = p.submit
