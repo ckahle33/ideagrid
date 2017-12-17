@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'projects#index'
-  resource :projects do
+  resources :projects do
+    member do
+      post 'vote'
+    end
     collection do
       get 'me'
     end

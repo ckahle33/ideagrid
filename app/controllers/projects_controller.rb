@@ -35,6 +35,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def vote
+
+  end
+
 
   def destroy
   end
@@ -42,7 +46,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :organization, :budget)
+    params.require(:project).permit(:id, :title, :description, :organization, :budget)
   end
 
 end

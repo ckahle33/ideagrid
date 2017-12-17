@@ -1,9 +1,5 @@
-.row.hero
-  .twelve-col
-    %h1
-      %span.white
-        ProjectScout
-      connects 🔗 developers to organizations that need help.
+- unless current_user
+  = render partial: 'partials/hero'
 
 .row.container
   .three-col
@@ -23,6 +19,10 @@
         .project
           %h2.title
             = p.title
+
+          %button.vote.pull-right{data: {vote: "", id: p.id}}
+            = fa_icon "arrow-up", text: p.votes.count
+
           %small.org
             = p.organization
           %small.created

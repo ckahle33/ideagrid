@@ -20,6 +20,11 @@ gem 'hamlit'
 
 # css
 gem 'neat'
+gem "font-awesome-rails"
+
+# js
+gem 'sprockets-es6'
+gem 'jquery-rails'
 
 gem 'dotenv-rails'
 

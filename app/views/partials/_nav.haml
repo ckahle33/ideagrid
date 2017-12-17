@@ -4,11 +4,14 @@
     - if current_user
       %ul
         %li
-          = current_user.email
-        %li
           = link_to "New Project", new_projects_path
         %li
           = link_to "My Projects", me_projects_path
+        %li
+          = link_to "Upvoted", "#"
+        |
+        %li
+          = current_user.email
         %li
           = link_to "Log Out", logout_path
     - else
