@@ -36,7 +36,12 @@ class ProjectsController < ApplicationController
   end
 
   def vote
-
+    @vote = Vote.find_by(project_id: project_params[:id], user_id: current_user.id)
+    if @vote
+      @vote.destroy!
+    else
+      Vote.create!(project_id: project_params[:id], user_id: current_user.id)
+    end
   end
 
 
@@ -46,7 +51,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:id, :title, :description, :organization, :budget)
+    params.require(:project).permit(:id, :title, :description, :organization, :budget, tags_attributes: [:name])
   end
 
 end

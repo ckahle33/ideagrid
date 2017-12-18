@@ -5,6 +5,8 @@ body
   color: #454545
   box-sizing: border-box
 
+$main-color: #20b2aa
+
 .logo
   font-weight: bold
   float: left
@@ -12,12 +14,12 @@ body
 
 .tag
   padding: .5em
-  border: 1px solid #6816e0
+  border: 1px solid $main-color
   border-radius: 4px
   margin: .5em 0
 
 a
-  color: #6816e0
+  color: $main-color
 
 .white
   color: white
@@ -27,7 +29,7 @@ a
   width: 100%
   float: left
   padding: 5em 0
-  border-bottom: 1px solid #6816e0
+  border-bottom: 1px solid $main-color
   background: #C9D6FF
   background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF)
   background: linear-gradient(to right, #E2E2E2, #C9D6FF)
@@ -44,13 +46,16 @@ a
   float: left
 
 .vote
+  position: absolute
+  top: 10px
+  right: 10px
   padding: .5em 1em
   font-size: 14px
   font-weight: bold
   border-radius: 4px
-  border: 1px solid #6816e0
-  &:hover
-    background: #6816e0
+  border: 1px solid $main-color
+  &:hover, &[data-toggled='true']
+    background: $main-color
     color: #fff
     cursor: pointer
 
@@ -69,7 +74,7 @@ form
   input, textarea
     box-sizing: border-box
     width: 100%
-    border: 1px solid #6816e0
+    border: 1px solid $main-color
     border-radius: 4px
     float: left
     font-size: 16px
@@ -78,21 +83,27 @@ form
     &:hover
       cursor: pointer
       color: white
-      background: #6816e0
+      background: $main-color
 
 .project
+  position: relative
   margin: .5em 0
   padding: 1em
-  border: 1px solid #6816e0
+  border: 1px solid $main-color
   border-radius: 4px
   h2
     margin: 0
   .title
     font-weight: bold
+  .small-tag
+    @extend .tag
+    background: $main-color
+    color: #fff
+    padding: .2em
 
 .main-nav
   padding: 1em 0
-  border-bottom: 1px solid #6816e0
+  border-bottom: 1px solid $main-color
   ul
     margin: 0
     float: right

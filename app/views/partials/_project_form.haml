@@ -13,4 +13,8 @@
       = p.label :description
       = p.text_area :description
     .form-group
+      %label
+        Tags
+      %input{type: "text", name: "tags", class: "tag-field"}
+    .form-group
       = p.submit
