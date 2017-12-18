@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'me'
+      get 'voted'
     end
   end
 
