@@ -1,5 +1,5 @@
 .six-col
-  = form_for Project.new do |p|
+  = form_for @project do |p|
     .form-group
       = p.label :title
       = p.text_field :title
@@ -13,8 +13,9 @@
       = p.label :description
       = p.text_area :description
     .form-group
-      %label
-        Tags
-      %input{type: "text", name: "tags", class: "tag-field"}
+      = p.fields_for :tags, @project.tags do |t|
+        %label
+          Tags
+        = t.text_field :name, value: "enter some tags"
     .form-group
       = p.submit

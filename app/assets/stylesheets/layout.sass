@@ -1,3 +1,5 @@
+$main-color: #20b2aa
+
 body
   margin: 0
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
@@ -5,7 +7,10 @@ body
   color: #454545
   box-sizing: border-box
 
-$main-color: #20b2aa
+a
+  color: #454546
+  text-decoration: none
+
 
 .logo
   font-weight: bold
@@ -17,9 +22,10 @@ $main-color: #20b2aa
   border: 1px solid $main-color
   border-radius: 4px
   margin: .5em 0
-
-a
-  color: $main-color
+  &:hover
+    cursor: pointer
+    color: #fff
+    background: $main-color
 
 .white
   color: white
@@ -97,9 +103,14 @@ form
     font-weight: bold
   .small-tag
     @extend .tag
-    background: $main-color
+    margin: .1em
+    text-decoration: none
     color: #fff
     padding: .2em
+    &:hover
+      cursor: pointer
+      color: white
+      background: $main-color
 
 .main-nav
   padding: 1em 0

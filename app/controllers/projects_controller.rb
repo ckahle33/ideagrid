@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @project = Project.new
+    @project.tags.build
   end
 
   def edit
@@ -19,6 +21,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user_id = current_user.id
     if @project.save!
+      build_tags
       flash[:info] = "Saved!"
       redirect_to root_path
     else
@@ -50,8 +53,16 @@ class ProjectsController < ApplicationController
 
   private
 
+  def build_tags
+    # hacky AF
+    params[:project][:tags][:name].split(/[\s,]+/).each do |t|
+      tag = Tag.find_or_create_by(name: t)
+      ProjectTag.find_or_create_by(project_id: @project.id, tag_id: tag.id)
+    end
+  end
+
   def project_params
-    params.require(:project).permit(:id, :title, :description, :organization, :budget, tags_attributes: [:name])
+    params.require(:project).permit(:id, :title, :description, :organization, :budget)
   end
 
 end

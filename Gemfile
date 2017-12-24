@@ -31,6 +31,9 @@ gem 'dotenv-rails'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 
+gem 'binding_of_caller'
+gem 'better_errors'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
