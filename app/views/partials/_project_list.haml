@@ -3,24 +3,4 @@
     Projects
   - if @projects
     - @projects.each do |p|
-      .project
-        %h2.title
-          = p.title
-
-        %button.vote.pull-right{data: {vote: "", url: vote_project_path(p.id), id: p.id, count: p.votes.count, toggled: "#{user_voted?(p.id)}"}}
-          = fa_icon "arrow-up"
-          %span.count
-            = p.votes.count
-        .details
-          %small.org
-            = p.organization
-          %small.created
-            = p.created_at.strftime('%b %d, %Y')
-        %br
-        .tags
-          - p.tags.each do |tag|
-            %small.small-tag
-              = link_to tag.name, tags_path(tag.id)
-        %hr
-        %small.description
-          = p.description
+      = render partial: "partials/project", locals: { p: p }
