@@ -51,6 +51,7 @@ class Vote {
 
 }
 
+
 $(document).on("turbolinks:load", ()=> {
   let votes = document.querySelectorAll('[data-vote]');
   if (votes.length) {

@@ -47,6 +47,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def voted
+    @projects = Project.where(user_id: current_user.id)
+  end
+
 
   def destroy
   end
