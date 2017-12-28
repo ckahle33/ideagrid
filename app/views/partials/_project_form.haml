@@ -2,20 +2,21 @@
   = form_for @project do |p|
     .form-group
       = p.label :title
-      = p.text_field :title
+      = p.text_field :title, required: true
     .form-group
       = p.label :organization
-      = p.text_field :organization
+      = p.text_field :organization, required: true
     .form-group
       = p.label :budget
-      = p.number_field :budget
+      = p.number_field :budget, required: true
     .form-group
       = p.label :description
-      = p.text_area :description
+      = p.text_area :description, required: true
     .form-group
       = p.fields_for :tags, @project.tags do |t|
         %label
           Tags
-        = t.text_field :name, value: "enter some tags"
+        .tag-container
+          = t.text_field :name, value: ""
     .form-group
       = p.submit

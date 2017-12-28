@@ -2,38 +2,5 @@
   = render partial: 'partials/hero'
 
 .row.container
-  .three-col
-    %h3
-      Tags
-    %ul
-      - [*1..6].each do |i|
-        %li.tag
-          tag
-          = i
-
-  .nine-col
-    %h3
-      My Upvotes
-    - if @projects
-      - @projects.each do |p|
-        .project
-          %h2.title
-            = p.title
-
-          %button.vote.pull-right{data: {vote: "", url: vote_project_path(p.id), id: p.id, count: p.votes.count, toggled: "#{user_voted?(p.id)}"}}
-            = fa_icon "arrow-up"
-            %span.count
-              = p.votes.count
-          .details
-            %small.org
-              = p.organization
-            %small.created
-              = p.created_at.strftime('%b %d, %Y')
-          %br
-          .tags
-            - p.tags.each do |tag|
-              %small.small-tag
-                = tag.name
-          %hr
-          %small.description
-            = p.description
+  = render partial: "partials/sidebar"
+  = render partial: "partials/project_list"

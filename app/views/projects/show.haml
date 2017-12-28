@@ -3,26 +3,4 @@
 
 .row.container
   = render partial: "partials/sidebar"
-  .nine-col.rel
-    %h1
-      = @project.title
-
-    = link_to @project.title, project_path(@project.id)
-
-    %button.vote.pull-right{data: {vote: "", url: vote_project_path(@project.id), id: @project.id, count: @project.votes.count, toggled: "#{user_voted?(@project.id)}"}}
-      = fa_icon "arrow-up"
-      %span.count
-        = @project.votes.count
-    .details
-      %small.org
-        = @project.organization
-      %small.created
-        = @project.created_at.strftime('%b %d, %Y')
-    %br
-    .tags
-      - @project.tags.each do |tag|
-        %small.small-tag
-          = link_to tag.name, tags_path(tag.id)
-    %hr
-    %small.description
-      = @project.description
+  = render partial: "projects/detail"

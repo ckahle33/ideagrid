@@ -1,6 +1,7 @@
 .project
-  %h2.title
-    = link_to p.title, project_path(p.id)
+  .top-row
+    %h2.title
+      = link_to p.title, project_path(p.id)
 
   %button.vote.pull-right{data: {vote: "", url: vote_project_path(p.id), id: p.id, count: p.votes.count, toggled: "#{user_voted?(p.id)}"}}
     = fa_icon "arrow-up"

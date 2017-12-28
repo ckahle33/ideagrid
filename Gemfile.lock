@@ -99,7 +99,7 @@ GEM
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    hamlit (2.8.5)
+    hamlit (2.8.6)
       temple (>= 0.8.0)
       thor
       tilt

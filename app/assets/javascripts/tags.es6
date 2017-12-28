@@ -1,5 +1,5 @@
 $(() => {
-  $(".tag-field").selectize({
+  $("#project_tags_name").selectize({
       delimiter: ',',
       persist: false,
       create: function(input) {

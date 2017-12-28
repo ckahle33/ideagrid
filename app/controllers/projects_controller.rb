@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :require_login, only: [:new, :create, :destroy, :edit]
 
   def index
+    @header = "All Projects"
     @projects = Project.all.order("created_at DESC")
     render 'index'
   end
@@ -31,11 +32,11 @@ class ProjectsController < ApplicationController
     else
       flash[:alert] = "Error!"
     end
-
   end
 
   def me
     if current_user
+      @header = "My Projects"
       @user = User.find(session[:user_id])
       @projects = @user.projects
       render 'index'
@@ -52,6 +53,7 @@ class ProjectsController < ApplicationController
   end
 
   def voted
+    @header = "My Upvotes"
     @projects = Project.where(user_id: current_user.id)
   end
 

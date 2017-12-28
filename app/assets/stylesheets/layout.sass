@@ -1,4 +1,7 @@
-$main-color: #20b2aa
+$dark: #454546
+$navy: #160498
+$white: #fff
+$orange: #f9c421
 
 body
   margin: 0
@@ -6,11 +9,61 @@ body
   font-size: 16px
   color: #454545
   box-sizing: border-box
+  background: #f9f9f9
 
 a
-  color: #454546
-  text-decoration: none
+  color: $navy
+  background: $white
+  padding: .3em
+  box-shadow: inset 0 0 0 1px $navy
+  &:hover
+    box-shadow: none
+    color: $white
+    background: $navy
 
+.form-group
+  .selectize-input
+    cursor: text
+    position: relative
+    z-index: 1
+    display: inline-block
+    width: 100%
+    padding: 8px 8px
+    overflow: hidden
+    border: 1px solid $dark
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    background: #fff
+    padding: .2em
+    .item
+      float: left
+      padding: .3em
+      display: inline-block
+      border: 1px solid $dark
+      margin-right: .2em
+    input
+      outline: none
+      display: inline-block
+      border: none
+      cursor: pointer
+      height: 30px
+      padding: 0
+
+.card
+  padding: 1em
+  background: white
+  margin-top: 1em
+  position: relative
+  border: 1px solid $dark
+
+.sidebar
+  @extend .card
+  h3
+    margin-top: 0
+
+.project-detail
+  @extend .card
 
 .logo
   font-weight: bold
@@ -18,28 +71,30 @@ a
   box-sizing: border-box
 
 .tag
-  padding: .5em
-  border: 1px solid $main-color
-  border-radius: 4px
-  margin: .5em 0
+  padding: 0.5em 0
+  color: #fff
+  display: inline-block
   &:hover
     cursor: pointer
     color: #fff
-    background: $main-color
+    background: $white
 
 .white
   color: white
   text-shadow: 1px 1px #454546
 
+.orange
+  color: $orange
+
 .hero
   width: 100%
   float: left
   padding: 5em 0
-  border-bottom: 1px solid $main-color
-  background: #C9D6FF
-  background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF)
-  background: linear-gradient(to right, #E2E2E2, #C9D6FF)
-  color: #454546
+  border-bottom: 1px solid $dark
+  background: #0575E6
+  background: -webkit-linear-gradient(to right, #021B79, #0575E6)
+  background: linear-gradient(to right, #021B79, #0575E6)
+  color: $white
 
 .row
   float: left
@@ -58,11 +113,10 @@ a
   padding: .5em 1em
   font-size: 14px
   font-weight: bold
-  border-radius: 4px
-  border: 1px solid $main-color
+  border: 1px solid $dark
   &:hover, &[data-toggled='true']
-    background: $main-color
-    color: #fff
+    background: $navy
+    color: $white
     cursor: pointer
 
 form
@@ -80,8 +134,7 @@ form
   input, textarea
     box-sizing: border-box
     width: 100%
-    border: 1px solid $main-color
-    border-radius: 4px
+    border: 1px solid $dark
     float: left
     font-size: 16px
     padding: .5em
@@ -89,35 +142,35 @@ form
     &:hover
       cursor: pointer
       color: white
-      background: $main-color
+      background: $navy
 
 .project
+  background: #fff
   position: relative
   margin: .5em 0
   padding: 1em
-  border: 1px solid $main-color
-  border-radius: 4px
+  border: 1px solid $dark
   h2
     margin: 0
   .title
     font-weight: bold
   .small-tag
     @extend .tag
-    margin: .1em
     text-decoration: none
     color: #fff
-    padding: .2em
+    display: inline-block
     &:hover
       cursor: pointer
-      color: white
-      background: $main-color
+      color: $navy
+      background: $white
 
 .rel
   position: relative
 
 .main-nav
+  background: $white
   padding: 1em 0
-  border-bottom: 1px solid $main-color
+  border-bottom: 1px solid $dark
   ul
     margin: 0
     float: right

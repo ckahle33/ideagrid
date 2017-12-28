@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_voted?(id)
-    !!current_user.votes.find_by(project_id: id)
+    !!current_user.votes.find_by(project_id: id) if current_user
   end
 
 end

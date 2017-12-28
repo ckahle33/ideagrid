@@ -1,7 +1,8 @@
 .three-col
-  %h3
-    Tags
-  %ul
-    - Tag.all.each do |tag|
-      %li.tag
-        = link_to tag.name, tags_path(tag.id)
+  .sidebar
+    %h3
+      Tags
+    %ul
+      - Tag.all.each do |tag|
+        %li.tag
+          = link_to tag.name, tags_path(tag.id)
