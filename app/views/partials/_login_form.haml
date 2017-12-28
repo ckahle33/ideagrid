@@ -1,5 +1,5 @@
 .six-col
-  = form_for User.new do |p|
+  = form_for @user, url: login_path do |p|
     .form-group
       = p.label :email
       = p.text_field :email
@@ -7,4 +7,4 @@
       = p.label :password
       = p.password_field :password
     .form-group
-      = p.submit
+      = p.submit("Login")
