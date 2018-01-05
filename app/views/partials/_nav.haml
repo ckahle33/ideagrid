@@ -11,7 +11,7 @@
           = link_to "Upvoted", voted_projects_path
         |
         %li
-          = current_user.email
+          = link_to current_user.email, profile_path
         %li
           = link_to "Log Out", logout_path
     - else

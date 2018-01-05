@@ -13,6 +13,5 @@
   .tags
     - p.tags.each do |tag|
       = link_to tag.name, tags_path(tag.id), class: "tag"
-  %hr
-  %small.description
+  .description
     = p.description

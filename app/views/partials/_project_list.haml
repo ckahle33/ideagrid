@@ -1,6 +1,8 @@
 .nine-col
-  %h3
-    = @header
-  - if @projects
-    - @projects.each do |p|
-      = render partial: "partials/project", locals: { p: p }
+  .projects
+    .header
+      %h3
+        = @header
+    - if @projects
+      - @projects.each do |p|
+        = render partial: "partials/project", locals: { p: p }

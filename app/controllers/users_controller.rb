@@ -2,6 +2,13 @@ class UsersController < ApplicationController
   def new
   end
 
+  def update
+    if current_user.update(user_params)
+      redirect_to profile_path
+      flash[:info] = "Profile Updated"
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -27,6 +34,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :developer)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :developer, :years_experience, :website_url, :github_url)
   end
 end
