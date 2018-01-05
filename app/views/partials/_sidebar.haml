@@ -4,5 +4,5 @@
       Tags
     %ul
       - Tag.all.each do |tag|
-        %li.tag
-          = link_to tag.name, tags_path(tag.id)
+        %li
+          = link_to tag.name, tags_path(tag.id), class: "tag"

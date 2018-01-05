@@ -1,7 +1,10 @@
-$dark: #454546
+$dark: #4c4c4c
 $navy: #160498
 $white: #fff
 $orange: #f9c421
+
+*, ::after, ::before
+  box-sizing: border-box
 
 body
   margin: 0
@@ -12,14 +15,16 @@ body
   background: #f9f9f9
 
 a
-  color: $navy
-  background: $white
-  padding: .3em
-  box-shadow: inset 0 0 0 1px $navy
+  color: $white
+  background: $dark
+  padding: .4em
+  display: inline-block
+  text-decoration: none
   &:hover
     box-shadow: none
-    color: $white
-    background: $navy
+    color: $dark
+    background: $white
+    box-shadow: inset 0 0 0 1px $dark
 
 .form-group
   .selectize-input
@@ -61,6 +66,8 @@ a
   @extend .card
   h3
     margin-top: 0
+  .tag
+    margin: .1em 0
 
 .project-detail
   @extend .card
@@ -71,9 +78,10 @@ a
   box-sizing: border-box
 
 .tag
-  padding: 0.5em 0
+  padding: 0.5em
   color: #fff
   display: inline-block
+  font-size: .8em
   &:hover
     cursor: pointer
     color: #fff
@@ -91,9 +99,7 @@ a
   float: left
   padding: 5em 0
   border-bottom: 1px solid $dark
-  background: #0575E6
-  background: -webkit-linear-gradient(to right, #021B79, #0575E6)
-  background: linear-gradient(to right, #021B79, #0575E6)
+  background: $dark
   color: $white
 
 .row
@@ -115,7 +121,7 @@ a
   font-weight: bold
   border: 1px solid $dark
   &:hover, &[data-toggled='true']
-    background: $navy
+    background: $dark
     color: $white
     cursor: pointer
 
@@ -138,11 +144,14 @@ form
     float: left
     font-size: 16px
     padding: .5em
+  input[type="radio"]
+    width: auto
+    margin-bottom: 0
   input[type="submit"]
     &:hover
       cursor: pointer
       color: white
-      background: $navy
+      background: $dark
 
 .project
   background: #fff
@@ -150,19 +159,11 @@ form
   margin: .5em 0
   padding: 1em
   border: 1px solid $dark
-  h2
-    margin: 0
+  .details
+    margin: .5em 0
   .title
     font-weight: bold
-  .small-tag
-    @extend .tag
-    text-decoration: none
-    color: #fff
-    display: inline-block
-    &:hover
-      cursor: pointer
-      color: $navy
-      background: $white
+    margin: 0
 
 .rel
   position: relative
