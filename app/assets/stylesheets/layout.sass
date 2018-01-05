@@ -2,6 +2,7 @@ $white:     #fff
 $light:     #e8e8e8
 $hover:     #a5a5a5
 $dark:      #4c4c4c
+$lt-blue:   #399bf7
 $blue:      #0084ff
 
 *, ::after, ::before
@@ -99,6 +100,9 @@ a
   color: $white
   padding: .4em
   background: $blue
+  &:hover
+    background: $lt-blue
+    color: $white
 
 .tags
   margin-bottom: .5em
@@ -110,10 +114,9 @@ a
   font-size: .9em
   background: $blue
   &:hover
+    color: $white
     cursor: pointer
-    color: $dark
-    background: $white
-    box-shadow: inset 0 0 0 1px $blue
+    background: $lt-blue
 
 .white
   color: white
@@ -145,10 +148,19 @@ a
   font-size: 14px
   font-weight: bold
   border: 1px solid $blue
-  &:hover, &[data-toggled='true']
+  color: $dark
+  &:hover
     background: $blue
     color: $white
     cursor: pointer
+  &[data-toggled='true']
+    background: $blue
+    color: $white
+    cursor: pointer
+    &:hover
+      background: $lt-blue
+      color: $white
+      cursor: pointer
 
 form
   box-sizing: border-box

@@ -1,4 +1,4 @@
-$(() => {
+$(document).on("turbolinks:load", ()=> {
   $("#project_tags_name").selectize({
       delimiter: ',',
       persist: false,
