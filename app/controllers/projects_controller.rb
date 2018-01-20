@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 
   def voted
     @header = "My Upvotes"
-    @projects = Project.where(user_id: current_user.id)
+    @projects = current_user.voted_projects
   end
 
 

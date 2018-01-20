@@ -5,9 +5,19 @@ $dark:      #4c4c4c
 $lt-blue:   #399bf7
 $blue:      #0084ff
 
+/* util extend classes */
+.card
+  padding: 1em
+  background: white
+  margin-top: 1em
+  position: relative
+  border: 1px solid $light
+
 *, ::after, ::before
   box-sizing: border-box
 
+
+/* block level elements */
 body
   margin: 0
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
@@ -23,6 +33,21 @@ a
   &:hover
     box-shadow: none
     color: $hover
+
+ul
+  padding: 0
+  li
+    list-style-type: none
+
+form
+  box-sizing: border-box
+  font-size: 16px
+
+.alert
+  padding: 1em
+  color: $white
+  &.alert-info
+    background: $lt-blue
 
 .form-group
   @extend .row
@@ -43,10 +68,11 @@ a
     width: auto
     margin-bottom: 0
   input[type="submit"]
+    background: $blue
+    color: $white
     &:hover
       cursor: pointer
-      color: white
-      background: $dark
+      background: $lt-blue
   .selectize-input
     cursor: text
     position: relative
@@ -75,12 +101,6 @@ a
       height: 30px
       padding: 0
 
-.card
-  padding: 1em
-  background: white
-  margin-top: 1em
-  position: relative
-  border: 1px solid $light
 
 .sidebar
   @extend .card
@@ -127,7 +147,7 @@ a
   float: left
   padding: 5em 0
   border-bottom: 1px solid $dark
-  background: $dark
+  background: $blue
   color: $white
 
 .row
@@ -162,9 +182,11 @@ a
       color: $white
       cursor: pointer
 
-form
-  box-sizing: border-box
-  font-size: 16px
+.six-col
+  &.center
+    @include grid-push(3)
+  &.new
+    @extend .card
 
 .projects
   @extend .card
@@ -197,8 +219,3 @@ form
     li
       display: inline
       padding: .3em
-
-ul
-  padding: 0
-  li
-    list-style-type: none

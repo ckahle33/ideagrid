@@ -1,21 +1,20 @@
-.six-col
-  = form_for User.new do |p|
-    .form-group
-      = p.label :email
-      = p.text_field :email
-    .form-group
-      = p.label :password
-      = p.password_field :password
-    .form-group
-      = p.label :password_confirmation
-      = p.password_field :password_confirmation
-    .form-group
-      = p.radio_button :developer, true
-      %label
-        I'm a developer
-    .form-group
-      = p.radio_button :developer, true
-      %label
-        I'm looking for a developer
-    .form-group
-      = p.submit
+= form_for @user, url: {action: "create"} do |p|
+  .form-group
+    = p.label :email
+    = p.text_field :email
+  .form-group
+    = p.label :password
+    = p.password_field :password
+  .form-group
+    = p.label :password_confirmation
+    = p.password_field :password_confirmation
+  .form-group
+    = p.radio_button :developer, true
+    %label
+      I'm a developer
+  .form-group
+    = p.radio_button :developer, true
+    %label
+      I'm looking for a developer
+  .form-group
+    = p.submit

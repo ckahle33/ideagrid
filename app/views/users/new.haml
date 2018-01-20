@@ -1,6 +1,5 @@
 .row.new
-  .twelve-col
+  .six-col.center.new
     %h1
       Sign Up
-
-= render partial: "partials/sign_up_form"
+    = render partial: "partials/sign_up_form", locals: {user: @user}

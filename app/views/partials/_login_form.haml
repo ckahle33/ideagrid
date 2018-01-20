@@ -1,10 +1,9 @@
-.six-col
-  = form_for @user, url: login_path do |p|
-    .form-group
-      = p.label :email
-      = p.text_field :email
-    .form-group
-      = p.label :password
-      = p.password_field :password
-    .form-group
-      = p.submit("Login")
+= form_for @user, url: login_path do |p|
+  .form-group
+    = p.label :email
+    = p.text_field :email
+  .form-group
+    = p.label :password
+    = p.password_field :password
+  .form-group
+    = p.submit("Login")

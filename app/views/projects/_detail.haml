@@ -3,14 +3,22 @@
     %h1
       = @project.title
 
-    %button.vote.pull-right{data: {vote: "", url: vote_project_path(@project.id), id: @project.id, count: @project.votes.count, toggled: "#{user_voted?(@project.id)}"}}
-      = fa_icon "arrow-up"
-      %span.count
-        = @project.votes.count
+    // break to a partial
+    - if current_user
+      %button.vote.pull-right{data: {vote: "", url: vote_project_path(p.id), id: p.id, count: p.votes.count, toggled: "#{user_voted?(p.id)}"}}
+        = fa_icon "arrow-up"
+        %span.count
+          = @project.votes.count
+    - else
+      %a.vote.pull-right{href: "/login"}
+        = fa_icon "arrow-up"
+        %span.count
+          = @project.votes.count
+
     .details
-      .org
-        = @project.organization
-      .created
+      .created_by
+        = @project.user.email
+      .created_at
         = @project.created_at.strftime('%b %d, %Y')
     .tags
       - @project.tags.each do |tag|
