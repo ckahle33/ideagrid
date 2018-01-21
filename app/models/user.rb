@@ -3,4 +3,6 @@ class User < ApplicationRecord
   has_many :projects
   has_many :votes
   has_many :voted_projects, through: :votes, source: :project
+  has_many :comments
+
 end

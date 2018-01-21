@@ -3,4 +3,22 @@
 
 .row.container
   = render partial: "partials/sidebar"
-  = render partial: "projects/detail"
+  .nine-col.rel
+    = render partial: "projects/detail"
+
+    // comment form - to partial
+    = form_for @comment, :url => { :controller => "comments", :action => "create" } do |c|
+      = hidden_field :comment, :project_id, value: @project.id
+      .form-group
+        = c.label :body
+        = c.text_field :body
+      .form-group
+        = c.submit
+
+    // comments
+    - @project.comments.each do |c|
+      .comment
+        = c.created_at
+        -# = c.user.email
+        = c.body
+

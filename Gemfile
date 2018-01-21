@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'hamlit'
 
+gem 'closure_tree'
+
 # css
 gem 'neat'
 gem "font-awesome-rails"

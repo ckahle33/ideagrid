@@ -3,5 +3,6 @@ class Project < ApplicationRecord
   has_many :project_tags
   has_many :tags, through: :project_tags
   has_many :votes
+  has_many :comments
 
 end

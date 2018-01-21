@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments
+
   get '/tags/:id', to: 'tags#show', as: "tags"
 
   # auth
