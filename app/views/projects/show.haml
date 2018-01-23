@@ -7,18 +7,26 @@
     = render partial: "projects/detail"
 
     // comment form - to partial
-    = form_for @comment, :url => { :controller => "comments", :action => "create" } do |c|
-      = hidden_field :comment, :project_id, value: @project.id
-      .form-group
-        = c.label :body
-        = c.text_field :body
-      .form-group
-        = c.submit
+    .comment-section
+      = form_for @comment, :url => { :controller => "comments", :action => "create" } do |c|
+        = hidden_field :comment, :project_id, value: @project.id
+        .form-group
+          = label_tag 'Comment'
+          = c.text_field :body
+        .form-group
+          = c.submit
 
     // comments
     - @project.comments.each do |c|
       .comment
-        = c.created_at
-        -# = c.user.email
-        = c.body
+        .created_at
+          = c.created_at.strftime('%b %e, %l:%M %p')
+        .reply
+          %button{'v-on:click': 'createForm'}
+            reply
+
+        .email
+          = c.user.email
+        .body
+          = c.body
 

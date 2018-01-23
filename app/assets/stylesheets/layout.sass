@@ -12,6 +12,7 @@ $blue:      #0084ff
   margin-top: 1em
   position: relative
   border: 1px solid $light
+  display: inline-block
 
 *, ::after, ::before
   box-sizing: border-box
@@ -151,6 +152,10 @@ form
   border-bottom: 1px solid $dark
   background: $blue
   color: $white
+
+.comment-section, .comment
+  @extend .card
+  width: 100%
 
 .row
   float: left
