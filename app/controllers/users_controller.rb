@@ -11,17 +11,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      if @user.developer
-        redirect_to profile_path
-        session[:user_id] = @user.id
-        flash[:info] = "Fill out a brief profile outlining your skills."
-      else
-      redirect_to root_path
-      session[:user_id] = @user.id
-      flash[:info] = "Logged In."
-      end
+    @user = User.where(email: user_params[:email]).first
+    @new_user = User.new(user_params)
+    if @user
+      redirect_to login_path
+      flash[:info] = "An account already exists with this email. Please login"
+    elsif !@user && @new_user.save
+      redirect_to profile_path
+      session[:user_id] = @new_user.id
+      flash[:info] = "Set a username"
     else
       redirect_to signup_path
       flash[:alert] = "Error Logging in"

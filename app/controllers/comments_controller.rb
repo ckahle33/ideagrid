@@ -1,14 +1,23 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user
+
   def create
-    comment = Comment.new(comment_params)
+    comment = Comment.new(body: comment_params[:comment][:body], project_id: comment_params[:id])
     if comment.save!
       current_user.comments << comment
       flash[:info] = "Comment Saved!"
-      redirect_to project_path(comment_params[:project_id])
+      redirect_to project_path(comment_params[:id])
+    end
+  end
+
+  def authenticate_user
+    unless current_user
+      redirect_to login_path
+      flash[:info] = "Please log in to comment"
     end
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :project_id)
+    params.permit(:id, {comment: [:body]})
   end
 end

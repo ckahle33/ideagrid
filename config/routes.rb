@@ -3,14 +3,13 @@ Rails.application.routes.draw do
   resources :projects do
     member do
       post 'vote'
+      post 'comment', to: 'comments#create'
     end
     collection do
       get 'me'
       get 'voted'
     end
   end
-
-  resources :comments
 
   get '/tags/:id', to: 'tags#show', as: "tags"
 
