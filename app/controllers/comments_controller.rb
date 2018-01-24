@@ -3,6 +3,10 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.new(body: comment_params[:comment][:body], project_id: comment_params[:id])
+    if comment_params[:parent_id]
+      c = Comment.find(comment_params[:parent_id])
+      c.children.create(body: comment_params[:comment][:body], project_id: comment_params[:id])
+    end
     if comment.save!
       current_user.comments << comment
       flash[:info] = "Comment Saved!"
@@ -18,6 +22,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.permit(:id, {comment: [:body]})
+    params.permit(:id, {comment: [:body, :parent_id]})
   end
 end

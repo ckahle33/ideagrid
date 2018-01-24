@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   var comment = new Vue({
-    el: '.reply',
-    data: {},
+    el: '.comment',
+    data: {
+      visible: false
+    },
     methods: {
-      createForm: function() {
-        console.log('click');
+      showForm: function() {
+        this.visible = !this.visible;
       }
     }
   })
