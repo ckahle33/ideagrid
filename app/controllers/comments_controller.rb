@@ -1,12 +1,10 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user
+  skip_before_action :verify_authenticity_token
 
   def create
-    comment = Comment.new(body: comment_params[:comment][:body], project_id: comment_params[:id])
-    if comment_params[:parent_id]
-      c = Comment.find(comment_params[:parent_id])
-      c.children.create(body: comment_params[:comment][:body], project_id: comment_params[:id])
-    end
+    # raise ''
+    comment = Comment.new(body: comment_params[:comment][:body], project_id: comment_params[:id], parent_id: comment_params[:comment][:parent_id])
     if comment.save!
       current_user.comments << comment
       flash[:info] = "Comment Saved!"

@@ -15,38 +15,6 @@
         .form-group
           = c.submit "Save"
 
-      // comments
-      - @project.comments.each do |c|
-        .comment
-          .created_at
-            = c.created_at.strftime('%b %e, %l:%M %p')
-          .reply
-            %button{'v-on:click': 'showForm'}
-              reply
-
-          .email
-            = c.user.email
-          .body
-            = c.body
-
-        - if c.parent_id
-          .comment
-            .created_at
-              = c.created_at.strftime('%b %e, %l:%M %p')
-            .reply
-              %button{'v-on:click': 'showForm'}
-                reply
-
-            .email
-              = c.user.email
-            .body
-              = c.body
-
-        .reply-form{"v-if": "visible"}
-          = form_for Comment.new, :url => { :controller => "comments", :action => "create" } do |form|
-            = hidden_field :comment, :parent_id, value: c.id
-            .form-group
-              = label_tag 'Comment'
-              = form.text_field :body
-            .form-group
-              = form.submit "Save"
+    // comments
+    - @project.comments.roots.each do |c|
+      = render partial: "partials/comment", locals: {c: c}
