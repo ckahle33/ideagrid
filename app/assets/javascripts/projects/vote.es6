@@ -18,14 +18,17 @@ class Vote {
   }
 
   postVote() {
-    axios.post(this.url, {
-       project: {id: this.id}
-      },
+    axios.post({
+      url: this.url,
+      data: { "project":
+        {"id": this.id}
+      }
     })
-    .done((data) => {
-      console.log("something happened");
+    .then((data) => {
+      console.log(`${data}: Posted vote`);
     })
-    .fail((data) => {
+    .catch((data) => {
+      console.log()
     })
   }
 
