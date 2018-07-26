@@ -12,7 +12,6 @@ $blue:      #0084ff
   margin-top: 1em
   position: relative
   border: 1px solid $light
-  display: inline-block
 
 *, ::after, ::before
   box-sizing: border-box
@@ -20,7 +19,6 @@ $blue:      #0084ff
 
 /* block level elements */
 body
-  margin: 0
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
   font-size: 14px
   color: #454545
@@ -43,6 +41,12 @@ ul
 form
   box-sizing: border-box
   font-size: 16px
+
+.centered-form
+  padding: 1em
+  border: 1px solid $light
+  background: $white
+
 
 .alert
   padding: 1em
@@ -107,7 +111,6 @@ form
 
 .sidebar
   @extend .card
-  width: 100%
   h3
     margin-top: 0
   .tag
@@ -147,10 +150,8 @@ form
   color: white
   text-shadow: 1px 1px #454546
 
-.hero
-  width: 100%
-  float: left
-  padding: 5em 0
+.jumbotron-fluid
+  padding: 8em 1em
   border-bottom: 1px solid $dark
   background-image: url('city.jpg')
   color: $white
@@ -170,10 +171,6 @@ form
     color: $blue
   [data-cancel]
     color: red
-
-.row
-  float: left
-  width: 100%
 
 .pull-right
   float: right
@@ -204,15 +201,11 @@ form
       cursor: pointer
 
 .six-col
-  &.center
-    @include grid-push(3)
   &.new
     @extend .card
 
 .projects
   @extend .card
-  width: 100%
-  padding: 0
   .header
     padding: 0 1em
     border-bottom: 1px solid $light
@@ -228,16 +221,3 @@ form
     font-weight: bold
     margin: 0
 
-.rel
-  position: relative
-
-.main-nav
-  background: $white
-  padding: 1em 0
-  border-bottom: 1px solid $light
-  ul
-    margin: .4em 0
-    float: right
-    li
-      display: inline
-      padding: .3em

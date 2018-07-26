@@ -1,32 +1,20 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
-gem 'rails', '~> 5.1.4'
+gem 'rails', '= 5.2.0'
 gem 'pg'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-
-gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
-
 gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'hamlit'
-
 gem 'closure_tree'
 
 # css
-gem 'neat'
 gem "font-awesome-rails"
 
 # js
 gem 'sprockets-es6'
-gem 'jquery-rails'
 
 gem 'dotenv-rails'
 

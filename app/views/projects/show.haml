@@ -1,9 +1,10 @@
 - unless current_user
   = render partial: 'partials/hero'
 
-.row.container
+.row
   = render partial: "partials/sidebar"
-  .nine-col.rel
+
+  .col-9
     = render partial: "projects/detail"
 
     // comment form - to partial

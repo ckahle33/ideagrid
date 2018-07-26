@@ -10,5 +10,6 @@
     = render partial: 'partials/nav'
     - flash.each do |key, value|
       %div{:class => "alert alert-#{key}"}= value
-    %main.grid-container
-      = yield
+    %main
+      .container-fluid
+        = yield

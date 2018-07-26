@@ -44,7 +44,7 @@ class Reply {
 
 }
 
-$(document).on("turbolinks:load", ()=> {
+document.addEventListener("turbolinks:load", ()=> {
   var comments = document.querySelectorAll('.comment');
   if (comments) {
     comments.forEach(function(c) {
