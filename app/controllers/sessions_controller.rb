@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
       flash[:info] = "Logged In."
     else
-      flash[:alert] = "There was an error with your credentials"
+      flash[:danger] = "There was an error with your credentials"
       redirect_to login_path
     end
   end

@@ -18,11 +18,8 @@ class Vote {
   }
 
   postVote() {
-    $.ajax({
-      method: 'post',
-      url: this.url,
-      data: { "project":
-        {"id": this.id}
+    axios.post(this.url, {
+       project: {id: this.id}
       },
     })
     .done((data) => {

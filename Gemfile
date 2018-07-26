@@ -15,6 +15,7 @@ gem "font-awesome-rails"
 
 # js
 gem 'sprockets-es6'
+gem 'webpacker'
 
 gem 'dotenv-rails'
 
