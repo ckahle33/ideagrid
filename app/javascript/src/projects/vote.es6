@@ -1,3 +1,5 @@
+import axios from "axios";
+
 class Vote {
   constructor(el) {
     this.el       = el;
@@ -18,8 +20,9 @@ class Vote {
   }
 
   postVote() {
-    axios.post({
+    axios({
       url: this.url,
+      method: 'post',
       data: { "project":
         {"id": this.id}
       }
