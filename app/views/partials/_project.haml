@@ -1,22 +1,22 @@
-.project
-  %h3.title
-    = link_to p.title, project_path(p.id)
+.row.project
+  .col-lg-10
+    %h6.title
+      = link_to p.title, project_path(p.id)
+    .details
+      = time_ago_in_words(p.created_at)
+      ago
 
-  // break to a partial
-  - if current_user
-    %button.vote.pull-right{data: {vote: "", url: vote_project_path(p.id), id: p.id, count: p.votes.count, toggled: "#{user_voted?(p.id)}"}}
-      = fa_icon "arrow-up"
-      %span.count
-        = p.votes.count
-  - else
-    %a.vote.pull-right{href: "/login"}
-      = fa_icon "arrow-up"
-      %span.count
-        = p.votes.count
-  .details
-    = p.created_at.strftime('%b %d, %Y')
-  .tags
-    - p.tags.each do |tag|
-      = link_to tag.name, tags_path(tag.id), class: "tag"
-  .description
-    = truncate(p.description, length: 300, separator: "...")
+    .description
+      = truncate(p.description, length: 300, separator: "...")
+  .col-lg-2
+    // break to a partial
+    - if current_user
+      %button.vote.pull-right{data: {vote: "", url: vote_project_path(p.id), id: p.id, count: p.votes.count, toggled: "#{user_voted?(p.id)}"}}
+        = fa_icon "arrow-up"
+        %span.count
+          = p.votes.count
+    - else
+      %a.vote.pull-right{href: "/login"}
+        = fa_icon "arrow-up"
+        %span.count
+          = p.votes.count

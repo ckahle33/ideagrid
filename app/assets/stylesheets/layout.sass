@@ -1,17 +1,16 @@
 $white:     #fff
 $light:     #e8e8e8
 $hover:     #a5a5a5
-$dark:      #4c4c4c
+$dark:      #191818
 $lt-blue:   #399bf7
-$blue:      #0084ff
+$cyan:      #29f4b7
 
 /* util extend classes */
 .card
-  padding: 1em
   background: white
   margin-top: 1em
   position: relative
-  border: 1px solid $light
+  border: none
 
 *, ::after, ::before
   box-sizing: border-box
@@ -23,7 +22,19 @@ body
   font-size: 14px
   color: #454545
   box-sizing: border-box
-  background: #f9f9f9
+
+h1, h2, h3, h4, h5, h6
+  color: $dark
+
+nav
+  border-bottom: 1px solid $light
+
+.navbar-brand
+  font-weight: bold
+  letter-spacing: -1px
+
+a.nav-link
+  color: $dark
 
 a
   color: $dark
@@ -66,6 +77,7 @@ form
     box-sizing: border-box
     width: 100%
     border: 1px solid $light
+    border-radius: 1.5em
     float: left
     font-size: 16px
     padding: .5em
@@ -75,8 +87,9 @@ form
     width: auto
     margin-bottom: 0
   input[type="submit"]
-    background: $blue
-    color: $white
+    background: $cyan
+    color: $dark
+    max-width: 100px
     &:hover
       cursor: pointer
       background: $lt-blue
@@ -127,7 +140,7 @@ form
   font-size: 1.2em
   color: $white
   padding: .4em
-  background: $blue
+  background: $cyan
   &:hover
     background: $lt-blue
     color: $white
@@ -137,10 +150,11 @@ form
 
 .tag
   padding: 0.5em
-  color: $white
+  color: $dark
   display: inline-block
   font-size: .9em
-  background: $blue
+  border-radius: 1.5em
+  background: $cyan
   &:hover
     color: $white
     cursor: pointer
@@ -168,7 +182,7 @@ form
   @extend .card
   width: 100%
   [data-reply]
-    color: $blue
+    color: $cyan
   [data-cancel]
     color: red
 
@@ -185,19 +199,17 @@ form
   padding: .5em 1em
   font-size: 14px
   font-weight: bold
-  border: 1px solid $blue
   color: $dark
+  border-radius: 1.5em
+  border: none
   &:hover
-    background: $blue
-    color: $white
+    background: $cyan
     cursor: pointer
   &[data-toggled='true']
-    background: $blue
-    color: $white
+    background: $cyan
     cursor: pointer
     &:hover
       background: $lt-blue
-      color: $white
       cursor: pointer
 
 .six-col
@@ -207,16 +219,16 @@ form
 .projects
   @extend .card
   .header
-    padding: 0 1em
-    border-bottom: 1px solid $light
+    padding: 0 0 1em 0
 
 .project
   background: #fff
   position: relative
-  padding: 1em
-  border-bottom: 1px solid $light
+  padding: 1em 0
   .details
-    margin: .5em 0
+    color: #888
+    margin: 0 .5em .5em 0
+    font-size: .9em
   .title
     font-weight: bold
     margin: 0
