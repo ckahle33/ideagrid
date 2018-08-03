@@ -4,5 +4,6 @@ class Idea < ApplicationRecord
   has_many :tags, through: :idea_tags
   has_many :votes
   has_many :comments
+  # has_one_attached :image
 
 end

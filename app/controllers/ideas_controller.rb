@@ -25,9 +25,10 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(project_params)
+    @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
     if @idea.save!
+      # @idea.image.attach(params[:image])
       build_tags
       flash[:info] = "Saved!"
       redirect_to root_path
@@ -73,8 +74,8 @@ class IdeasController < ApplicationController
     end
   end
 
-  def project_params
-    params.require(:idea).permit(:id, :title, :description, :organization, :budget)
+  def idea_params
+    params.require(:idea).permit(:id, :title, :description, :organization, :budget, :image)
   end
 
 end

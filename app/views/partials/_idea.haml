@@ -1,5 +1,8 @@
 .row.project
-  .col-lg-10
+  -# - if p.image.attachment
+  -#   .col-lg-2
+  -#     .badge{style: "background: url(#{url_for(p.image)})"}
+  .col-lg-8
     %h6.title
       = link_to p.title, idea_path(p.id)
     .details

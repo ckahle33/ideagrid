@@ -15,6 +15,9 @@
         = @idea.votes.count
 
   .details
+    .image-banner
+      -# - if @idea.image.attached?
+      -# %img{src: url_for(@idea.image)}
     .created_by
       = @idea.user.email
     .created_at
