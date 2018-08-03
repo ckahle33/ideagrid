@@ -47,17 +47,17 @@ class IdeasController < ApplicationController
   end
 
   def vote
-    @vote = Vote.find_by(idea_id: project_params[:id], user_id: current_user.id)
+    @vote = Vote.find_by(idea_id: idea_params[:id], user_id: current_user.id)
     if @vote
       @vote.destroy!
     else
-      Vote.create!(idea_id: project_params[:id], user_id: current_user.id)
+      Vote.create!(idea_id: idea_params[:id], user_id: current_user.id)
     end
   end
 
   def voted
     @header = "My Upvotes"
-    @ideas = current_user.voted_projects
+    @ideas = current_user.voted_ideas
   end
 
 

@@ -23,7 +23,7 @@ class Vote {
     axios({
       url: this.url,
       method: 'post',
-      data: { "project":
+      data: { "idea":
         {"id": this.id}
       }
     })
