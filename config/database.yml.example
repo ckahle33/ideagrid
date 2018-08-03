@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: projectscout_development
+  database: ideagrid_development
   pool: 5
 test:
   adapter: postgresql
@@ -11,8 +11,8 @@ test:
 staging: &production_config
   adapter: postgresql
   encoding: unicode
-  database: projectscout_staging
+  database: ideagrid_staging
   pool: 5
 production:
   <<: *production_config
-  database: projectscout_production
+  database: ideagrid_production
