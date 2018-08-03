@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'projects#index'
-  resources :projects do
+  root to: 'ideas#index'
+  resources :ideas do
     member do
       post 'vote'
       post 'comment', to: 'comments#create'

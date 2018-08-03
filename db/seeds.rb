@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+10.times do |i|
+  user = User.new(email: "dev#{i}@ideagrid.com", password: 'password', password_confirmation: 'password')
+  user.save
+  Idea.find_or_create_by!(title: Faker::RickAndMorty.quote, description: Faker::Seinfeld.quote, user_id: user.id)
+  Vote.create(user_id: user.id, idea_id: Idea.order("RANDOM()").first.id )
+  Tag.create(name: Faker::Cannabis.strain)
+  IdeaTag.create(tag_id: Tag.order("RANDOM()").first.id, idea_id: Idea.order("RANDOM()").first.id)
+end

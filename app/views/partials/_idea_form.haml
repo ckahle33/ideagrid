@@ -1,4 +1,4 @@
-= form_for @project do |p|
+= form_for @idea do |p|
   .form-group
     = p.label :title
     = p.text_field :title, required: true
@@ -6,7 +6,7 @@
     = p.label :description
     = p.text_area :description, required: true
   .form-group
-    = p.fields_for :tags, @project.tags do |t|
+    = p.fields_for :tags, @idea.tags do |t|
       %label
         Tags
       .tag-container

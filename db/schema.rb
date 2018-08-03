@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121053748) do
+ActiveRecord::Schema.define(version: 2018_08_03_064250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,29 +25,29 @@ ActiveRecord::Schema.define(version: 20180121053748) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "project_id"
+    t.integer "idea_id"
     t.integer "user_id"
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "project_tags", force: :cascade do |t|
+  create_table "idea_tags", force: :cascade do |t|
     t.bigint "tag_id"
-    t.bigint "project_id"
+    t.bigint "idea_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_project_tags_on_project_id"
-    t.index ["tag_id"], name: "index_project_tags_on_tag_id"
+    t.index ["idea_id"], name: "index_idea_tags_on_idea_id"
+    t.index ["tag_id"], name: "index_idea_tags_on_tag_id"
   end
 
-  create_table "projects", force: :cascade do |t|
+  create_table "ideas", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_projects_on_user_id"
+    t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(version: 20180121053748) do
 
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "project_id"
+    t.bigint "idea_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_votes_on_project_id"
+    t.index ["idea_id"], name: "index_votes_on_idea_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "votes", "projects"
+  add_foreign_key "votes", "ideas"
   add_foreign_key "votes", "users"
 end

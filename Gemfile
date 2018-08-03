@@ -25,6 +25,7 @@ gem 'binding_of_caller'
 gem 'better_errors'
 
 group :development, :test do
+  gem 'faker'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'pry-byebug'

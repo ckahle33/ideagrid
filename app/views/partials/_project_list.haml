@@ -3,6 +3,6 @@
     .header
       %h4
         = @header
-    - if @projects
-      - @projects.each do |p|
+    - if @ideas
+      - @ideas.each do |p|
         = render partial: "partials/project", locals: { p: p }

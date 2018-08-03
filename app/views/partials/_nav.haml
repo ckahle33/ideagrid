@@ -5,11 +5,11 @@
       - if current_user
         %ul.navbar-nav.ml-auto
           %li.nav-item
-            = link_to "New Project", new_project_path, class: "nav-link"
+            = link_to "New idea", new_idea_path, class: "nav-link"
           %li.nav-item
-            = link_to "My Projects", me_projects_path, class: "nav-link"
+            = link_to "My ideas", me_ideas_path, class: "nav-link"
           %li.nav-item
-            = link_to "Upvoted", voted_projects_path, class: "nav-link border-right"
+            = link_to "Upvoted", voted_ideas_path, class: "nav-link border-right"
           %li.nav-item
             = link_to current_user.email, profile_path, class: "nav-link"
           %li.nav-item

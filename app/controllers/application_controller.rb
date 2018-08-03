@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  rescue
+    nil
   end
 
   def require_login
@@ -11,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_voted?(id)
-    !!current_user.votes.find_by(project_id: id) if current_user
+    !!current_user.votes.find_by(idea_id: id) if current_user
   end
 
 end

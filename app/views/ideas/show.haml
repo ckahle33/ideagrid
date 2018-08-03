@@ -5,7 +5,7 @@
   = render partial: "partials/sidebar"
 
   .col-9
-    = render partial: "projects/detail"
+    = render partial: "ideas/detail"
 
     // comment form - to partial
     .comment-section
@@ -17,5 +17,5 @@
           = c.submit "Save"
 
     // comments
-    - @project.comments.roots.each do |c|
+    - @idea.comments.roots.each do |c|
       = render partial: "partials/comment", locals: {c: c}
