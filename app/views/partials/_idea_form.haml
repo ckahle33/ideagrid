@@ -1,6 +1,6 @@
 = form_for @idea do |p|
   .form-group
-    = p.file_field :image, multiple: true, direct_upload: true
+    = p.file_field :image, direct_upload: true
   .form-group
     = p.label :title
     = p.text_field :title, required: true

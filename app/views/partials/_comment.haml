@@ -1,19 +1,24 @@
-.comment{"data-comment-id": c.id, "data-endpoint": "/idea/#{@idea.id}/comment"}
-  .created_at
-    = c.created_at.strftime('%b %e, %l:%M %p')
-  .reply
-    %a{href: "#", "data-reply": ""}
-      reply
-    %a{href: "#", "data-cancel": ""}
-      cancel
-
-    .email
+.comment{"data-comment-id": c.id, "data-endpoint": "/ideas/#{@idea.id}/comment"}
+  .body
+    %b
       = c.user.email
-    .body
-      = c.body
+    = c.body
 
-    .reply-form{"id": "comment-#{c.id}"}
+  .subtitle
+    .item.mr-2
+      %a{href: "#", "data-reply": ""}
+        reply
+    .item.mr-2
+      %a{href: "#", "data-cancel": ""}
+        cancel
+    .item.mr-2
+      = time_ago_in_words(c.created_at)
+
+
+  .reply-form{"id": "comment-#{c.id}"}
 
   - if c.children
-    - c.children.each do |child|
-      = render partial: "partials/comment", locals: {c: child}
+    .parent-comment
+      - c.children.each do |child|
+        .ml-4
+          = render partial: "partials/comment", locals: {c: child}

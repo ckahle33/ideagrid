@@ -28,7 +28,7 @@ class IdeasController < ApplicationController
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
     if @idea.save!
-      # @idea.image.attach(params[:image])
+      @idea.image.attach(idea_params[:image])
       build_tags
       flash[:info] = "Saved!"
       redirect_to root_path

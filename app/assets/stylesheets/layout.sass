@@ -44,6 +44,12 @@ a
     box-shadow: none
     color: $hover
 
+.idea-image
+  height: 100px
+  width: 100px
+  background-size: cover
+  border-radius: 50%
+
 ul
   padding: 0
   li
@@ -181,10 +187,19 @@ form
 .comment-section, .comment
   @extend .card
   width: 100%
-  [data-reply]
-    color: $cyan
-  [data-cancel]
-    color: red
+
+.parent-comment
+  border-left: 3px solid #eee
+  padding-left: 1em
+  border-radius: 0
+
+.subtitle, .description
+  float: left
+  .item
+    float: left
+
+.email
+  font-weight: bold
 
 .pull-right
   float: right
