@@ -1,9 +1,10 @@
 .row.project
-  - if p.image.attachment
-    .col-lg-2
+  .col-lg-2
+    - if p.image.attachment
       .idea-image{style: "background-image: url('#{url_for(p.image)}')"}
-      -# %img{src: url_for(p.image)}
-      -# .badge{style: "background: url(#{url_for(p.image)})"}
+    - else
+      .idea-letter{style: "background: #{random_color}"}
+        = p.title[0]
   .col-lg-8
     %h6.title
       = link_to p.title, idea_path(p.id)

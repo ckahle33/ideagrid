@@ -1,29 +1,30 @@
-.project-detail
-  %h3
-    = @idea.title
+.row
+  .col-lg-11
+    %h3
+      = @idea.title
 
-  // break to a partial
-  - if current_user
-    %button.vote.pull-right{data: {vote: "", url: vote_idea_path(@idea.id), id: @idea.id, count: @idea.votes.count, toggled: "#{user_voted?(@idea.id)}"}}
-      = fa_icon "arrow-up"
-      %span.count
-        = @idea.votes.count
-  - else
-    %a.vote.pull-right{href: "/login"}
-      = fa_icon "arrow-up"
-      %span.count
-        = @idea.votes.count
+    // break to a partial
+    .details
+      - if @idea.image.attached?
+        .image-banner{style: "background-image: url('#{url_for(@idea.image)}')"}
+      .created_by
+        = @idea.user.email
+      .created_at
+        = @idea.created_at.strftime('%b %d, %Y')
+    .tags
+      - @idea.tags.each do |tag|
+        = link_to tag.name, tags_path(tag.id), class: "tag"
+    .description
+      = @idea.description
+  .col-lg-1
+    - if current_user
+      %button.vote.pull-right{data: {vote: "", url: vote_idea_path(@idea.id), id: @idea.id, count: @idea.votes.count, toggled: "#{user_voted?(@idea.id)}"}}
+        = fa_icon "arrow-up"
+        %span.count
+          = @idea.votes.count
+    - else
+      %a.vote.pull-right{href: "/login"}
+        = fa_icon "arrow-up"
+        %span.count
+          = @idea.votes.count
 
-  .details
-    .image-banner
-      -# - if @idea.image.attached?
-      -# %img{src: url_for(@idea.image)}
-    .created_by
-      = @idea.user.email
-    .created_at
-      = @idea.created_at.strftime('%b %d, %Y')
-  .tags
-    - @idea.tags.each do |tag|
-      = link_to tag.name, tags_path(tag.id), class: "tag"
-  .description
-    = @idea.description

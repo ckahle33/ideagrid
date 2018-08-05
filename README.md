@@ -1,24 +1,62 @@
-# README
+# IdeaGrid
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Community app where can people can validate and discuss ideas with the world
 
-Things you may want to cover:
+### Technologies Used
+- Rails v5.2
+- nginx
+- Phusion Passenger
+- PostgreSQL
+- Sass
+- Redis/Sidekiq
+- Bootstrap
+- Webpack/Webpacker
+- Vanilla™ ES6
 
-* Ruby version
 
-* System dependencies
+### nginx/webserver setup
+On Mac OSX run
 
-* Configuration
+`brew install nginx --with-passenger`
 
-* Database creation
+See more 
+[on configuring Passenger on OSX](https://www.phusionpassenger.com/library/install/nginx/install/oss/osx/)
 
-* Database initialization
+Add a server config, or to the main `nginx.conf` file:
 
-* How to run the test suite
+```
+server {
+  listen 80;
+  server_name ideagrid.local;
+  root /Users/you/path/to/ideagrid/public;
+  access_log /Users/you/path/to/ideagrid/log/nginx_access.log;
+  error_log /Users/you/path/to/ideagrid/log/nginx_error.log;
+  passenger_enabled on;
+  rack_env development;
+}
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+Add a line to your `/etc/hosts` file like:
 
-* Deployment instructions
+`127.0.0.1 ideagrid.local`
 
-* ...
+
+### Postgres Setup
+
+IdeaGrid is developed against Postgres 9.6. I recommend using [Postgres.app](https://postgresapp.com/)
+
+
+### Rails Setup
+
+1. `git clone git@github.com:ckahle33/ideagrid.git`
+2. `cd idegrid`
+3. `bundle install`
+4. `cp ./config/database.yml.example ./config/database.yml`
+5. `bundle exec rake db:create db:migrate db:seed`
+6. `rails `
+
+
+### Frontend
+`yarn install`
+
+`./bin/webpack-dev-server`
