@@ -58,8 +58,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   ActionMailer::Base.smtp_settings = {
-    :user_name => 'apikey',
-    :password => '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',
+    :user_name => ENV['SENDGRID_USER'],
+    :password => ENV['SENDGRID_KEY'],
     :domain => 'yourdomain.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
