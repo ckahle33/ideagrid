@@ -49,11 +49,11 @@ IdeaGrid is developed against Postgres 9.6. I recommend using [Postgres.app](htt
 ### Rails Setup
 
 1. `git clone git@github.com:ckahle33/ideagrid.git`
-2. `cd idegrid`
+2. `cd ideagrid`
 3. `bundle install`
 4. `cp ./config/database.yml.example ./config/database.yml`
 5. `bundle exec rake db:create db:migrate db:seed`
-6. `rails `
+6. `touch tmp/restart` (to restart passenger)
 
 
 ### Frontend
