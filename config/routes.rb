@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   get '/tags/:id', to: 'tags#show', as: "tags"
 
   # auth
-  get '/login',    to: 'sessions#new'
-  post '/login',   to: 'sessions#create'
-  get '/logout',   to: 'sessions#destroy'
-  get '/signup',   to: 'users#new'
-  resource :user, only: [:create, :update]
-  get '/profile',   to: 'users#profile'
+  get '/login',          to: 'sessions#new'
+  post '/login',         to: 'sessions#create'
+  get '/logout',         to: 'sessions#destroy'
+  get '/signup',         to: 'users#new'
+  get '/confirm/:token', to: 'users#confirm'
+  resources :users, only: [:create, :update, :edit]
 
 end

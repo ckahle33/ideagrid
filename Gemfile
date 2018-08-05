@@ -10,6 +10,8 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'hamlit'
 gem 'closure_tree'
+gem 'sendgrid-ruby'
+gem 'dotenv-rails'
 
 # css
 gem "font-awesome-rails"

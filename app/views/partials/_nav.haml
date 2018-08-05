@@ -11,7 +11,7 @@
           %li.nav-item
             = link_to "Upvoted", voted_ideas_path, class: "nav-link border-right"
           %li.nav-item
-            = link_to current_user.email, profile_path, class: "nav-link"
+            = link_to current_user.email, edit_user_path(current_user.id), class: "nav-link"
           %li.nav-item
             = link_to "Log Out", logout_path, class: "nav-link"
       - else

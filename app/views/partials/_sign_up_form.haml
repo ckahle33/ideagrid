@@ -1,5 +1,8 @@
 = form_for @user, url: {action: "create"} do |p|
   .form-group
+    = p.label :username
+    = p.text_field :username
+  .form-group
     = p.label :email
     = p.text_field :email
   .form-group
@@ -8,13 +11,5 @@
   .form-group
     = p.label :password_confirmation
     = p.password_field :password_confirmation
-  -# .form-group
-  -#   = p.radio_button :developer, true
-  -#   %label
-  -#     I'm a developer
-  -# .form-group
-  -#   = p.radio_button :developer, true
-    %label
-      I'm looking for a developer
   .form-group
     = p.submit

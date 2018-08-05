@@ -3,6 +3,7 @@
 Community app where can people can validate and discuss ideas with the world
 
 ### Technologies Used
+- Ruby v2.4.1 (todo: upgrade)
 - Rails v5.2
 - nginx
 - Phusion Passenger
@@ -51,9 +52,10 @@ IdeaGrid is developed against Postgres 9.6. I recommend using [Postgres.app](htt
 1. `git clone git@github.com:ckahle33/ideagrid.git`
 2. `cd ideagrid`
 3. `bundle install`
-4. `cp ./config/database.yml.example ./config/database.yml`
-5. `bundle exec rake db:create db:migrate db:seed`
-6. `touch tmp/restart` (to restart passenger)
+4. `cp ./config/database.yml.example ./config/database.yml` (this will end up in .env)
+6. `cp .env.example .env`
+7. `bundle exec rake db:create db:migrate db:seed`
+8. `touch tmp/restart.txt` (to restart passenger)
 
 
 ### Frontend
