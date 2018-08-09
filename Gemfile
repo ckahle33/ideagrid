@@ -22,7 +22,11 @@ gem 'webpacker'
 gem 'dotenv-rails'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-bundler'
+gem 'capistrano-chruby'
 
 gem 'binding_of_caller'
 gem 'better_errors'
