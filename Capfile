@@ -27,6 +27,7 @@ install_plugin Capistrano::SCM::Git
 #   https://github.com/capistrano/passenger
 #
 require "capistrano/rails"
+require "capistrano/rails/migrations"
 require "capistrano/bundler"
 require "capistrano/passenger"
 
