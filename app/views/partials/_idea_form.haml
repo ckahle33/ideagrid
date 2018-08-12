@@ -1,6 +1,8 @@
 = form_for @idea do |p|
-  .form-group
-    = p.file_field :image, direct_upload: true
+  .custom-file
+    %label{class: "custom-file-label", for:"customFile"}
+      Choose file
+    = p.file_field :image, direct_upload: true, class: "custom-file-input"
   .form-group
     = p.label :title
     = p.text_field :title, required: true
