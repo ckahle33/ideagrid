@@ -3,8 +3,8 @@
 Community app where can people can validate and discuss ideas with the world
 
 ### Technologies Used
-- Ruby v2.4.1 (todo: upgrade)
-- Rails v5.2
+- Ruby 2.5.1
+- Rails 5.2
 - nginx
 - Phusion Passenger
 - PostgreSQL
@@ -20,7 +20,7 @@ On Mac OSX run
 
 `brew install nginx --with-passenger`
 
-See more 
+See more
 [on configuring Passenger on OSX](https://www.phusionpassenger.com/library/install/nginx/install/oss/osx/)
 
 Add a server config, or to the main `nginx.conf` file:

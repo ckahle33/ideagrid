@@ -23,10 +23,10 @@ gem 'dotenv-rails'
 
 # Use Capistrano for deployment
 gem 'capistrano'
+gem 'capistrano-chruby'
+gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-passenger'
-gem 'capistrano-bundler'
-gem 'capistrano-chruby'
 
 gem 'binding_of_caller'
 gem 'better_errors'
@@ -45,5 +45,3 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
