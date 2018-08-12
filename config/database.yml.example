@@ -6,7 +6,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: projecscout_test
+  database: ideagrid_test
   pool: 5
 staging: &production_config
   adapter: postgresql

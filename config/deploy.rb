@@ -18,12 +18,10 @@ set :passenger_restart_with_touch, true
 set :deploy_to, "/home/ideagrid"
 
 # Default value for :linked_files is []
-set :linked_files, %w{.env database.yml secrets.yml}
+set :linked_files, %w{.env config/database.yml config/secrets.yml}
 set :rails_env, -> { fetch(:stage) }
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{config}
 append :linked_dirs, '.bundle'
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
