@@ -24,4 +24,3 @@ set :rails_env, -> { fetch(:stage) }
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{config}
 append :linked_dirs, '.bundle'
-
