@@ -1,21 +1,18 @@
 import Choices from 'choices';
 
-document.addEventListener("turbolinks:load", ()=> {
-  var tag_names = document.querySelector("#project_tags_name")
-  if (tag_names) {
-    const choices = new Choices(tag_names, {
-        delimiter: ',',
-  })
+//  this is annoying
+// document.addEventListener("turbolinks:load", ()=> {
+//   var tag_names = document.getElementById("idea_tags")
+//   if (tag_names) {
+//     const choices = new Choices('#idea_tags', {
+//       silent: false,
+//       items: [],
+//       choices: [],
+//       renderChoiceLimit: -1,
+//       maxItemCount: -1,
+//       addItems: true,
+//       removeItems: true
+//     });
+//   }
 
-  }
-  // $("#project_tags_name").selectize({
-  //     delimiter: ',',
-  //     persist: false,
-  //     create: function(input) {
-  //         return {
-  //             value: input,
-  //             text: input
-  //         }
-  //     }
-  // });
-});
+// });

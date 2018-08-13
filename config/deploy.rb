@@ -10,6 +10,7 @@ set :user, "ideagrid"
 set :ssh_options, { forward_agent: true }
 
 set :passenger_restart_with_touch, true
+set :passenger_restart_command, 'touch tmp/restart.txt'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
