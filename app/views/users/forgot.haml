@@ -1,0 +1,12 @@
+.col-6.mx-auto.centered-form
+  %p
+    Send the form to reset your password
+  = form_tag forgot_password_path do |p|
+    .form-group
+      %label{for: "email"}
+        Email
+      %input{type: "text", name: "email"}
+
+    .form-group
+      %input{type: 'submit', class: "bt btn-primary", value: "Reset"}
+

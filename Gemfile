@@ -13,6 +13,8 @@ gem 'closure_tree'
 gem 'sendgrid-ruby'
 gem 'dotenv-rails'
 
+gem 'sidekiq'
+
 # css
 gem "font-awesome-rails"
 

@@ -1,0 +1,10 @@
+.col-6.mx-auto.centered-form
+= form_for @user, url: reset_password_path(@user.reset_token) do |p|
+  .form-group
+    = p.label :password
+    = p.password_field :password
+  .form-group
+    = p.label :password_confirmation
+    = p.password_field :password_confirmation
+  .form-group
+    = p.submit

@@ -46,7 +46,40 @@ class UsersController < ApplicationController
       redirect_to login_path
       flash[:danger] = "There was an error with your credentials"
     end
+  end
 
+  def forgot
+  end
+
+  def forgot_password
+    @user = User.find_by(email: params[:email])
+    if @user.send_reset_email
+      redirect_to forgot_path
+      flash[:info] = "Follow the link in the email to reset."
+    else
+      redirect_to forgot_path
+      flash[:error] = "Error sending reset email."
+    end
+  end
+
+  def reset
+    # get
+    @user= User.find_by(reset_token: params[:token])
+  end
+
+  def reset_password
+    #post/patch
+    @user = User.find_by(reset_token: params[:token])
+    u = @user
+    u.password = params[:user][:password]
+    u.password_confirmation = params[:user][:password]
+    if u.save
+      flash[:info] = "Password successfully reset."
+      redirect_to login_path
+    else
+      flash[:danger] = "There was en error resetting your password."
+      redirect_to reset_path
+    end
   end
 
   private
