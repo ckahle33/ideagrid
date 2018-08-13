@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:info] = "Click the link sent in the confirmation email to login."
     else
       redirect_to signup_path
-      flash[:alert] = "Error Logging in"
+      flash[:danger] = "#{@new_user.errors.full_messages}"
     end
   end
 

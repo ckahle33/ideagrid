@@ -1,5 +1,5 @@
 .row
-  .col-6
+  .col-6.mx-auto.centered-form
     %h2
       #{@user.email}'s profile
 
@@ -16,5 +16,4 @@
       .form-group
         = p.label :github_url
         = p.text_field :github_url
-      .form-group
-        = p.submit
+      = p.submit

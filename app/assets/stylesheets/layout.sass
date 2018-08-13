@@ -4,6 +4,7 @@ $hover:     #a5a5a5
 $dark:      #191818
 $lt-blue:   #399bf7
 $cyan:      #29f4b7
+$dark-cyan: #22cc99
 
 /* util extend classes */
 .card
@@ -40,9 +41,7 @@ a
   color: $dark
   display: inline-block
   text-decoration: none
-  &:hover
-    box-shadow: none
-    color: $hover
+  transition: 0.2s
 
 .idea-image
   height: 100px
@@ -103,13 +102,6 @@ form
   input[type="radio"]
     width: auto
     margin-bottom: 0
-  input[type="submit"]
-    background: $cyan
-    color: $dark
-    max-width: 100px
-    &:hover
-      cursor: pointer
-      background: $lt-blue
   .selectize-input
     cursor: text
     position: relative
@@ -165,17 +157,17 @@ form
 .tags
   margin-bottom: .5em
 
-.tag
+.tag, input[type="submit"]
   padding: 0.5em
   color: $dark
   display: inline-block
   font-size: .9em
   border-radius: 5px
   background: $cyan
+  transition: 0.2s
   &:hover
-    color: $white
     cursor: pointer
-    background: $lt-blue
+    background: $dark-cyan
 
 .white
   color: white
@@ -227,14 +219,15 @@ form
   color: $dark
   border-radius: 5px
   border: none
+  transition: 0.2s
   &:hover
-    background: $cyan
     cursor: pointer
+    background: $dark-cyan
   &[data-toggled='true']
     background: $cyan
     cursor: pointer
     &:hover
-      background: $lt-blue
+      background: $dark-cyan
       cursor: pointer
 
 .six-col
@@ -258,3 +251,16 @@ form
     font-weight: bold
     margin: 0
 
+input[type="submit"]
+  background: $cyan
+  color: $dark
+  max-width: 100px
+  opacity: 0.9
+  transition: 0.2s
+  &:hover
+    cursor: pointer
+    background: $dark-cyan
+    opacity: 1
+
+trix-editor
+  width: 100%

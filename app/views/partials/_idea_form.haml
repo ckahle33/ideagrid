@@ -7,8 +7,10 @@
     = p.label :title
     = p.text_field :title, required: true
   .form-group
+    -# %input{id: "x", type: "hidden", name: "description"}
     = p.label :description
-    = p.text_area :description, required: true
+    = p.hidden_field :description, required: true, id: "x"
+    %trix-editor{input: "x"}
   .form-group
     = p.fields_for :tags, @idea.tags do |t|
       %label

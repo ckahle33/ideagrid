@@ -15,7 +15,7 @@
       - @idea.tags.each do |tag|
         = link_to tag.name, tags_path(tag.id), class: "tag"
     .description
-      = @idea.description
+      = @idea.description.html_safe
   .col-lg-1
     - if current_user
       %button.vote.pull-right{data: {vote: "", url: vote_idea_path(@idea.id), id: @idea.id, count: @idea.votes.count, toggled: "#{user_voted?(@idea.id)}"}}

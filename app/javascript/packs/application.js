@@ -1,9 +1,10 @@
 import Bootstrap from 'bootstrap.native';
+import trix from 'trix'
 
 import Turbolinks from "turbolinks";
 Turbolinks.start()
 
-import * as ActiveStorage from "activestorage"
+import * as ActiveStorage from "activestorage";
 ActiveStorage.start()
 
 import '../src/ideas/comment.es6';

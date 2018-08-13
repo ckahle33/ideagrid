@@ -1,15 +1,15 @@
 = form_for @user, url: {action: "create"} do |p|
   .form-group
     = p.label :username
-    = p.text_field :username
+    = p.text_field :username, required: true
   .form-group
     = p.label :email
-    = p.text_field :email
+    = p.text_field :email, required: true
   .form-group
     = p.label :password
-    = p.password_field :password
+    = p.password_field :password, required: true
   .form-group
     = p.label :password_confirmation
-    = p.password_field :password_confirmation
+    = p.password_field :password_confirmation, required: true
   .form-group
     = p.submit
