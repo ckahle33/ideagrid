@@ -1,14 +1,15 @@
 $white:     #fff
 $light:     #e8e8e8
-$hover:     #a5a5a5
 $dark:      #191818
+$md-dark:   #353740
 $lt-blue:   #399bf7
-$cyan:      #29f4b7
-$dark-cyan: #22cc99
+$turq:      #43d1ad
+$dark-turq: #37b291
+$blue:      #22cc99
 
 
 button:focus, input:focus
-  outline: 1px solid $lt-blue
+  outline: none
 
 /* util extend classes */
 .card
@@ -37,6 +38,8 @@ nav
 .navbar-brand
   font-weight: bold
   letter-spacing: -1px
+  img
+    max-width: 100px
 
 a.nav-link
   color: $dark
@@ -48,8 +51,8 @@ a
   transition: 0.2s
 
 .idea-image
-  height: 100px
-  width: 100px
+  height: 70px
+  width: 70px
   background-size: cover
   border-radius: 50%
 
@@ -57,7 +60,7 @@ a
   @extend .idea-image
   font-size: 2em
   text-align: center
-  padding-top: 1em
+  padding-top: .5em
 
 .image-banner
   height: 300px
@@ -153,7 +156,7 @@ form
   font-size: 1.2em
   color: $white
   padding: .4em
-  background: $cyan
+  background: $turq
   &:hover
     background: $lt-blue
     color: $white
@@ -167,11 +170,11 @@ form
   display: inline-block
   font-size: .9em
   border-radius: 5px
-  background: $cyan
+  background: $turq
   transition: 0.2s
   &:hover
     cursor: pointer
-    background: $dark-cyan
+    background: $dark-turq
 
 .white
   color: white
@@ -230,12 +233,12 @@ form
   transition: 0.2s
   &:hover
     cursor: pointer
-    background: $dark-cyan
+    background: $dark-turq
   &[data-toggled='true']
-    background: $cyan
+    background: $turq
     cursor: pointer
     &:hover
-      background: $dark-cyan
+      background: $dark-turq
       cursor: pointer
 
 .six-col
@@ -260,14 +263,14 @@ form
     margin: 0
 
 input[type="submit"]
-  background: $cyan
+  background: $turq
   color: $dark
   max-width: 100px
   opacity: 0.9
   transition: 0.2s
   &:hover
     cursor: pointer
-    background: $dark-cyan
+    background: $dark-turq
     opacity: 1
 
 trix-editor

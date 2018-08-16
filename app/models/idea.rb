@@ -4,7 +4,7 @@ class Idea < ApplicationRecord
   belongs_to :user, optional: true
   has_many :idea_tags
   has_many :tags, through: :idea_tags
-  has_many :votes
-  has_many :comments
+  has_many :votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 end

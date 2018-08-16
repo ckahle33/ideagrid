@@ -3,7 +3,7 @@
     - if p.image.attachment
       .idea-image{style: "background-image: url('#{url_for(p.image)}')"}
     - else
-      .idea-letter{style: "background: #{random_color}"}
+      .idea-letter{style: "border: 1px solid #{random_color}"}
         = p.title[0]
   .col-lg-8
     %h6.title
