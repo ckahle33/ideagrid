@@ -8,4 +8,4 @@ test:
 
 production:
   service: Disk
-  root: <%= "/home/ideagrid/shared/storage") %>
+  root: <%= ("/home/ideagrid/shared/storage") %>
