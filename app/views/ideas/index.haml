@@ -1,8 +1,9 @@
-- unless current_user
-  = render partial: 'partials/hero'
-
-.row
-  = render partial: "partials/sidebar"
-  = render partial: "partials/idea_list"
-
+- if current_user
+  .container
+    .row
+      = render partial: "partials/sidebar"
+      = render partial: "partials/idea_list"
+- else
+  .container-fluid.p-0
+    = render partial: 'partials/splash'
 

@@ -47,11 +47,16 @@ class IdeasController < ApplicationController
   end
 
   def vote
-    @vote = Vote.find_by(idea_id: idea_params[:id], user_id: current_user.id)
-    if @vote
-      @vote.destroy!
+    if current_user
+      @vote = Vote.find_by(idea_id: idea_params[:id], user_id: current_user.id)
+      if @vote
+        @vote.destroy!
+      else
+        Vote.create!(idea_id: idea_params[:id], user_id: current_user.id)
+      end
     else
-      Vote.create!(idea_id: idea_params[:id], user_id: current_user.id)
+      flash[:info] = "Please log in to vote"
+      redirect_to login_path
     end
   end
 
@@ -62,6 +67,13 @@ class IdeasController < ApplicationController
 
 
   def destroy
+    #todo
+  end
+
+  def explore
+    @header = "All Ideas"
+    @ideas = Idea.all.order("created_at DESC")
+    render 'explore'
   end
 
   private

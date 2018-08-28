@@ -1,24 +1,22 @@
-- unless current_user
-  = render partial: 'partials/hero'
+.container
+  .row
+    = render partial: "partials/sidebar"
 
-.row
-  = render partial: "partials/sidebar"
+    .col-9
+      .project-detail
+        = render partial: "ideas/detail"
 
-  .col-9
-    .project-detail
-      = render partial: "ideas/detail"
+        // comment form - to partial
+      .comment-section
+        .row
+          .col-lg-12
+            = form_for @comment, :url => { :controller => "comments", :action => "create" } do |c|
+              .form-group
+                = label_tag 'Comment'
+                = c.text_field :body
+              .form-group
+                = c.submit "Save"
 
-      // comment form - to partial
-    .comment-section
-      .row
-        .col-lg-12
-          = form_for @comment, :url => { :controller => "comments", :action => "create" } do |c|
-            .form-group
-              = label_tag 'Comment'
-              = c.text_field :body
-            .form-group
-              = c.submit "Save"
-
-          // comments
-          - @idea.comments.roots.each do |c|
-            = render partial: "partials/comment", locals: {c: c}
+            // comments
+            - @idea.comments.roots.each do |c|
+              = render partial: "partials/comment", locals: {c: c}

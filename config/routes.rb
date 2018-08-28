@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   root to: 'ideas#index'
+  get "explore", to: "ideas#explore"
   resources :ideas do
     member do
       post 'vote'
