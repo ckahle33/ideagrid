@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'voted'
     end
   end
+  resources :messages, only: [:index, :show, :create]
 
   get '/tags/:id', to: 'tags#show', as: "tags"
 

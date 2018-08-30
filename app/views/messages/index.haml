@@ -1,0 +1,13 @@
+.container
+  .row
+    %h3
+      Messages
+
+  - @inbox.each do |msg|
+    .message
+      .row
+        %h4
+          = msg.title
+      .row
+        %h5
+          = msg.body

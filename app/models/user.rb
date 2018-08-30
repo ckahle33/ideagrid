@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :votes
   has_many :voted_ideas, through: :votes, source: :idea
   has_many :comments
+  has_many :inbox_messages, foreign_key: :recipient_id, class_name: 'Message'
+  has_many :outbox_messages, foreign_key: :sender_id, class_name: 'Message'
   before_create :generate_confirm_token
   before_create :generate_reset_token
 
