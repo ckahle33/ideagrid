@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :outbox_messages, foreign_key: :sender_id, class_name: 'Message'
   before_create :generate_confirm_token
   before_create :generate_reset_token
+  before_create :downcase_email
 
   def generate_confirm_token
     self.confirmation_token = SecureRandom.uuid
@@ -33,6 +34,10 @@ class User < ApplicationRecord
 
   def send_reset_email
     UserResetMailer.reset_email(self).deliver_later
+  end
+
+  def downcase_email
+    self.email = email.downcase
   end
 
 end

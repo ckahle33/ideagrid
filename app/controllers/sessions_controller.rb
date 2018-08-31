@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.where(email: session_params[:email]).first
+    @user = User.where(email: session_params[:email].downcase).first
     if !@user.confirmed_at
       redirect_to login_path
       flash[:info] = "Please confirm your account before logging in."
