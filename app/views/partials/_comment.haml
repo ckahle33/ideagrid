@@ -1,4 +1,4 @@
-.comment{"data-comment-id": c.id, "data-endpoint": "/ideas/#{@idea.id}/comment"}
+.comment{"data-comment-id": c.id, "data-endpoint": endpoint}
   .body
     %b
       = c.user.username
@@ -21,4 +21,4 @@
     .parent-comment
       - c.children.each do |child|
         .ml-4
-          = render partial: "partials/comment", locals: {c: child}
+          = render partial: "partials/comment", locals: {c: child, endpoint: "/ideas/#{@idea.id}/comment"}

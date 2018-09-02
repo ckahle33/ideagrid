@@ -1,0 +1,15 @@
+.row
+  .col-6.mx-auto.centered-form
+    = form_for @message, url: {action: "create"} do |m|
+      .form-group
+        %label{for: "message[user]"}
+          Username or email
+        %input{type: "text", name: "message[user]"}
+      .form-group
+        = m.label :subject
+        = m.text_field :subject
+      .form-group
+        = m.label :body
+        = m.text_area :body
+      .form-group
+        = m.submit
