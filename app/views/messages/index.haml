@@ -9,17 +9,29 @@
       %h4
         Inbox
 
+      .list-group
       - @inbox.each do |msg|
-        .message
-          = link_to message_path(msg.id) do
+        = link_to message_path(msg.id), class: "list-group-item" do
+          .d-flex.w-100.justify-content-between
             %h5
               = msg.subject
+            %small
+              = time_ago_in_words(msg.created_at)
+              ago
+          %p.mb-1
+            #{msg.sender.email}
     .col-6
       %h4
         Outbox
 
+      .list-group
       - @outbox.each do |msg|
-        .message
-          = link_to message_path(msg.id) do
+        = link_to message_path(msg.id), class: "list-group-item" do
+          .d-flex.w-100.justify-content-between
             %h5
               = msg.subject
+            %small
+              = time_ago_in_words(msg.created_at)
+              ago
+          %p.mb-1
+            #{msg.recipient.email}

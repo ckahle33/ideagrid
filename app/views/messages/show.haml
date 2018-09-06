@@ -1,14 +1,18 @@
 .container
   .row
     .col-12
-      .message.my-2
-        %h5
-          = @message.subject
-        %p
-          From:
-          = @message.user.email
-        %h6
-          = @message.body
+      .card
+        .card-body
+          %h5
+            = @message.subject
+          %h6.card-subtitle.mb-2.text-muted
+            From
+            = @message.sender.email
+          %h6.card-subtitle.mb-2.text-muted
+            = time_ago_in_words(@message.created_at)
+            ago
+          %p.my-3
+            = @message.body
 
       .reply-section
         .row
@@ -16,7 +20,7 @@
             = form_for @reply, :url => { :controller => "messages", :action => "create" } do |c|
               .form-group
                 = c.hidden_field :parent_id, value: @message.id
-                = c.hidden_field :user, value: @message.user.email
+                = c.hidden_field :user, value: @message.sender.email
                 = label_tag 'Reply'
                 = c.text_field :body
               .form-group
@@ -25,7 +29,7 @@
         - @message.children.each do |c|
           .message.my-2
             %b
-              = c.user.email
+              = c.sender.email
             %p
               = c.body
 
