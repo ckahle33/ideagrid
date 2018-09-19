@@ -1,21 +1,21 @@
 = form_for @idea do |p|
-  .custom-file
-    %label{class: "custom-file-label", for:"customFile"}
-      Choose file
-    = p.file_field :image, direct_upload: true, class: "custom-file-input"
+  -# once we figure out storage, we can re-enable this
+  -# .custom-file
+  -#   %label{class: "custom-file-label", for:"customFile"}
+  -#     Choose file
+  -#   = p.file_field :image, direct_upload: true, class: "custom-file-input"
   .form-group
     = p.label :title
-    = p.text_field :title, required: true
+    = p.text_field :title, class: "form-control", required: true
   .form-group
-    -# %input{id: "x", type: "hidden", name: "description"}
     = p.label :description
     = p.hidden_field :description, required: true, id: "x"
-    %trix-editor{input: "x"}
+    %trix-editor{input: "x", class: "form-control"}
   .form-group
     = p.fields_for :tags, @idea.tags do |t|
       %label
         Tags
-      .tag-container
-        = t.text_field :name, value: "", id: "idea_tags"
+        .tag-container
+          #idea_tags
   .form-group
     = p.submit

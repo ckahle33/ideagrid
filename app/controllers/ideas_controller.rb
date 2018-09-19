@@ -25,6 +25,7 @@ class IdeasController < ApplicationController
   end
 
   def create
+    # raise 'hello'
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
     if @idea.save!
@@ -80,7 +81,7 @@ class IdeasController < ApplicationController
 
   def build_tags
     # hacky AF
-    params[:idea][:tags][:name].split(/[\s,]+/).each do |t|
+    params[:taggles].each do |t|
       tag = Tag.find_or_create_by(name: t)
       IdeaTag.find_or_create_by(idea_id: @idea.id, tag_id: tag.id)
     end

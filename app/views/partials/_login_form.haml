@@ -1,6 +1,7 @@
 = form_for @user, url: login_path do |p|
   .form-group
-    = p.label :email
+    %label
+      Email or Username
     = p.text_field :email
   .form-group
     = p.label :password

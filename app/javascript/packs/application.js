@@ -9,4 +9,4 @@ ActiveStorage.start()
 
 import '../src/ideas/comment.es6';
 import '../src/ideas/vote.es6';
-import '../src/tags.es6';
+import '../src/tags';
