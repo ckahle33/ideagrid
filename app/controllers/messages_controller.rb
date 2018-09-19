@@ -1,21 +1,39 @@
 class MessagesController < ApplicationController
   def index
     @inbox = current_user.inbox_messages
-    @inbox = current_user.outbox_messages
+    @outbox = current_user.outbox_messages
   end
 
   def show
+    @reply = Message.new
     @message = Message.find(params[:id])
   end
 
+  def new
+    @message = Message.new
+  end
+
   def create
-    message = Message.new(message_params)
-    if message.save!
-      redirect_to messages_path
-      flash[:success] = "Message sent"
+    user_id = User.find_by(email: message_params[:user])&.id
+    #sloppy, should be a js typeahead that inserts id from front-end
+    if user_id
+      message = Message.new(
+        subject: message_params[:subject],
+        body: message_params[:body],
+        recipient_id: user_id,
+        sender_id:  current_user.id,
+        parent_id: message_params[:parent_id].to_i,
+      )
+      if message.save!
+        redirect_to (message.parent.present? ? message_path(message.parent.id) : message_path(message.id))
+        flash[:success] = "Message sent"
+      else
+        redirect_to messages_path
+        flash[:danger] = "Error sending message."
+      end
     else
       redirect_to messages_path
-      flash[:danger] = "Error sending message."
+      flash[:danger] = "Can't find user."
     end
   end
 

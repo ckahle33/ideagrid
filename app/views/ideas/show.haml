@@ -19,4 +19,4 @@
 
             // comments
             - @idea.comments.roots.each do |c|
-              = render partial: "partials/comment", locals: {c: c}
+              = render partial: "partials/comment", locals: {c: c, endpoint: "/ideas/#{@idea.id}/comment"}

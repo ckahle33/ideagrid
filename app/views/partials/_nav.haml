@@ -9,9 +9,11 @@
           %li.nav-item
             = link_to "My ideas", me_ideas_path, class: "nav-link"
           %li.nav-item
-            = link_to "Upvoted", voted_ideas_path, class: "nav-link border-right"
+            = link_to "Upvoted", voted_ideas_path, class: "nav-link"
           -# %li.nav-item
           -#   = link_to "Messages", messages_path, class: "nav-link border-right"
+          %li.nav-item
+            = link_to "Users", users_path, class: "nav-link border-right"
           %li.nav-item
             = link_to current_user.email, edit_user_path(current_user.id), class: "nav-link"
           %li.nav-item

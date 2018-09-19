@@ -1,13 +1,37 @@
 .container
   .row
-    %h3
-      Messages
+    .col-12
+      .message-actions.my-2
+        %a{href: new_message_path, class: "btn btn-primary"}
+          New Message
+  .row
+    .col-6
+      %h4
+        Inbox
 
-  - @inbox.each do |msg|
-    .message
-      .row
-        %h4
-          = msg.title
-      .row
-        %h5
-          = msg.body
+      .list-group
+      - @inbox.each do |msg|
+        = link_to message_path(msg.id), class: "list-group-item" do
+          .d-flex.w-100.justify-content-between
+            %h5
+              = msg.subject
+            %small
+              = time_ago_in_words(msg.created_at)
+              ago
+          %p.mb-1
+            #{msg.sender.email}
+    .col-6
+      %h4
+        Outbox
+
+      .list-group
+      - @outbox.each do |msg|
+        = link_to message_path(msg.id), class: "list-group-item" do
+          .d-flex.w-100.justify-content-between
+            %h5
+              = msg.subject
+            %small
+              = time_ago_in_words(msg.created_at)
+              ago
+          %p.mb-1
+            #{msg.recipient.email}

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
       get 'voted'
     end
   end
-  resources :messages, only: [:index, :show, :create]
+  resources :messages, only: [:index, :show, :new, :create] do
+    member do
+      post 'reply', to: 'messages#create'
+    end
+  end
 
   get '/tags/:id', to: 'tags#show', as: "tags"
 
@@ -27,7 +31,7 @@ Rails.application.routes.draw do
   post '/forgot_password',         to: 'users#forgot_password', as: 'forgot_password'
   get '/reset/:token',           to: 'users#reset', as: 'reset'
   patch '/reset_password/:token', to: 'users#reset_password', as: 'reset_password'
-  resources :users,              only: [:create, :update, :edit]
+  resources :users
 
   mount Sidekiq::Web => '/sidekiq'
 

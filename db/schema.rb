@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_212852) do
+ActiveRecord::Schema.define(version: 2018_09_02_194808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 2018_08_30_212852) do
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
+  create_table "message_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "message_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "message_desc_idx"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "recipient_id"
@@ -78,6 +86,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_212852) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
   end
 
   create_table "tags", force: :cascade do |t|
