@@ -14,6 +14,7 @@ gem 'sendgrid-ruby'
 gem 'dotenv-rails'
 
 gem 'sidekiq'
+gem 'sentry-raven'
 
 # css
 gem "font-awesome-rails"
