@@ -9,7 +9,7 @@
 require 'faker'
 
 10.times do |i|
-  user = User.new(email: "dev#{i}@ideagrid.com", password: 'password', password_confirmation: 'password')
+  user = User.new(email: "dev#{i}@ideagrid.org", password: 'password', password_confirmation: 'password', confirmed_at: Time.now)
   user.save
   Idea.find_or_create_by!(title: Faker::RickAndMorty.quote, description: Faker::Seinfeld.quote, user_id: user.id)
   Vote.create(user_id: user.id, idea_id: Idea.order("RANDOM()").first.id )
