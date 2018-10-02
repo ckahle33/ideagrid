@@ -1,8 +1,6 @@
 .container
   .row
     = render partial: "partials/sidebar"
-    %h4
-      = @user.username
     - if @ideas.any?
       = render partial: "partials/idea_list"
     - else
