@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.joins(:ideas).group(:id).order('count(ideas.id) desc')
   end
 
   def show

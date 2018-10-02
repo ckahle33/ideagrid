@@ -1,11 +1,11 @@
 .container
   .row
-    .col-12
-      %h4
-        Users
-  .row
     = render partial: "partials/sidebar"
     .col-9
+      .row
+        .col-12
+          %h4
+            Users
       - if @users
         - @users.each do |u|
           .row.user
@@ -15,3 +15,6 @@
             .col-lg-10
               %h6.title
                 = link_to u.username, user_path(u.id)
+              %p
+                = u.ideas.count
+                Ideas
