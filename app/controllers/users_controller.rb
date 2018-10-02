@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @header = @user.email if @user
+    @header = @user.username if @user
     @ideas = @user.ideas
   end
 

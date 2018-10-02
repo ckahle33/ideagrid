@@ -10,7 +10,7 @@
       = link_to p.title, idea_path(p.id)
     .subtitle
       .item.mr-2
-        = p.user.email
+        = link_to p.user.username, user_path(p.user.id)
       .item.mr-2
         = time_ago_in_words(p.created_at)
         ago
