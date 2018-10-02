@@ -81,9 +81,11 @@ class IdeasController < ApplicationController
 
   def build_tags
     # hacky AF
-    params[:taggles].each do |t|
-      tag = Tag.find_or_create_by(name: t)
-      IdeaTag.find_or_create_by(idea_id: @idea.id, tag_id: tag.id)
+    if params[:taggles].present?
+      params[:taggles].each do |t|
+        tag = Tag.find_or_create_by(name: t)
+        IdeaTag.find_or_create_by(idea_id: @idea.id, tag_id: tag.id)
+      end
     end
   end
 

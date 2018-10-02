@@ -17,7 +17,7 @@
         comments
 
     .description
-      = truncate(p.description.html_safe, length: 300, separator: "...")
+      = truncate(p.description.html_safe, length: 200, separator: "...", escape: false)
   .col-lg-2
     // break to a partial
     - if current_user
