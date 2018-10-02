@@ -1,17 +1,19 @@
 .container
   .row
-    .col-12
+    = render partial: "partials/sidebar"
+
+    .col-9
       %h4
         = @user.username
-  .row
-    .col-12
-      %a{href: "#"}
-        Follow
-  .row
-    .col-12
-      - if @ideas.any?
-        = render partial: "partials/idea_list"
-      - else
-        %p
-          This user doesn't seem to have any ideas yet.
+      -# .row
+      -#   .col-12
+      -#     %a{href: "#"}
+      -#       Follow
+      .row
+        .col-12
+          - if @ideas.any?
+            = render partial: "partials/idea_list"
+          - else
+            %p
+              This user doesn't seem to have any ideas yet.
 

@@ -16,7 +16,7 @@ button:focus, input:focus
   background: white
   margin-top: 1em
   position: relative
-  // border: none
+  border: none
 
 *, ::after, ::before
   box-sizing: border-box
@@ -198,11 +198,14 @@ form
   padding: 5px
   color: $light
 
-.comment-section, .comment
+.comment-section
   background: white
   margin-top: 1em
   position: relative
   width: 100%
+
+.comment
+  @extend .card
 
 .parent-comment
   border-left: 3px solid #eee
@@ -261,7 +264,7 @@ form
   .header
     padding: 0 0 1em 0
 
-.project
+.project, .user
   background: #fff
   position: relative
   padding: 1em 0

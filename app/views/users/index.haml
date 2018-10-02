@@ -8,7 +8,7 @@
     .col-9
       - if @users
         - @users.each do |u|
-          .row.user.my-2
+          .row.user
             .col-lg-2
               .idea-letter{style: "border: 1px solid #{random_color}"}
                 = link_to u.email[0], user_path(u.id)
