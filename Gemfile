@@ -16,6 +16,10 @@ gem 'dotenv-rails'
 gem 'sidekiq'
 gem 'sentry-raven'
 
+gem 'nokogiri'
+gem "htmlentities"
+gem "truncate_html"
+
 # css
 gem "font-awesome-rails"
 

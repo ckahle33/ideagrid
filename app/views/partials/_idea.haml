@@ -15,9 +15,8 @@
       .item.mr-2
         = p.comments.count
         comments
-
     .description
-      = truncate(p.description.html_safe, length: 200, separator: "...", escape: false)
+      = truncate_html(p.description.html_safe, length: 200)
   .col-lg-2
     // break to a partial
     - if current_user
