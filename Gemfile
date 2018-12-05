@@ -13,6 +13,8 @@ gem 'closure_tree'
 gem 'sendgrid-ruby'
 gem 'dotenv-rails'
 
+gem 'omniauth'
+
 gem 'sidekiq'
 gem 'sentry-raven'
 
