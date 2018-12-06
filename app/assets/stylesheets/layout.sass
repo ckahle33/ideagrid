@@ -32,6 +32,7 @@ body
 h1, h2, h3, h4, h5, h6
   color: $dark
   text-shadow: none
+  margin: 1em 0 0 0
 
 nav
   border-bottom: 1px solid $light
@@ -83,10 +84,37 @@ form
   padding: 1em
   background: $white
 
+#new_suggestion
+  width: 100%
+
+.suggestion-widget
+  position: fixed
+  background: $lt-blue
+  border-radius: 1.5em
+  color: $white
+  right: 50px
+  bottom: 50px
+  padding: .5em
+  &:hover
+    color: #fff
+
+.subscribe-form
+  background: $md-dark
+  color: $white
+  .form-group
+    input
+      padding: 0.3em
+      margin: 0 .5em
+      border: none
+  h6
+    margin: 0 1em
+    color: $white
+
 
 .alert
-  padding: 1em
-  color: $white
+  // padding: 1em
+  margin: 0
+  color: $md-dark
   &.alert-info
     background: $lt-blue
 
@@ -174,7 +202,6 @@ form
   padding: 0.5em
   color: $dark
   display: inline-block
-  font-size: .9em
   border-radius: 5px
   background: $turq
   transition: 0.2s
@@ -262,7 +289,6 @@ form
 
 .projects
   background: white
-  margin-top: 1em
   position: relative
   .header
     padding: 0 0 1em 0
@@ -282,7 +308,6 @@ form
 input[type="submit"]
   background: $turq
   color: $dark
-  max-width: 100px
   opacity: 0.9
   transition: 0.2s
   &:hover

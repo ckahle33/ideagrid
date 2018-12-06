@@ -1,0 +1,18 @@
+.container
+  .row
+    %h5{style: "width: 100%;"}
+      Feedback
+
+    %p
+      We really appreciate you taking the time to provide us with feedback. Anything you can think of that would improve this community would be super useful. Thanks!
+
+    = form_for @suggestion do |s|
+      - unless current_user
+        .form-group
+          = s.label :email
+          = s.text_field :email
+      .form-group
+        = s.label :feedback
+        = s.text_area :feedback
+      .form-group
+        = s.submit

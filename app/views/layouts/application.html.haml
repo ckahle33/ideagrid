@@ -1,13 +1,21 @@
 !!!
 %html
   %head
+    / Global site tag (gtag.js) - Google Analytics
+    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=UA-130490670-1"}
+    :javascript
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-130490670-1');
+
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title IdeaGrid
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
     %meta{content: "Build. Together.", name: "description"}/
     %meta{content: "", property: "og:image"}/
-    %link{href: "https://www.launchaco.com/static/favicon.ico", rel: "shortcut icon"}/
+    = favicon_link_tag
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
@@ -16,4 +24,7 @@
     - flash.each do |key, value|
       %div{:class => "alert alert-#{key}"}= value
     %main
+      - unless current_user
+        = render partial: 'partials/subscribe_form'
       = yield
+    = render partial: 'partials/suggestion_widget'

@@ -1,0 +1,8 @@
+.row.subscribe-form
+  = form_for Subscriber.new, action: "create", html: {class: "form-inline mx-auto"} do |s|
+    %h6{style: "display: inline;"}
+      Get a feed of new ideas every week.
+    .form-group.mb-2
+      = s.text_field :email, placeholder: "Email"
+    .form-group.mb-2
+      = s.submit value: "Send!"

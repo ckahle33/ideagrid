@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get 'voted'
     end
   end
+  resources :suggestions, only: [:new, :create]
+  resources :subscribers, only: [:create]
   resources :messages, only: [:index, :show, :new, :create] do
     member do
       post 'reply', to: 'messages#create'
