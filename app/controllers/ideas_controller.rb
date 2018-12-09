@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  helper_method :random_image
   skip_before_action :verify_authenticity_token
   before_action :require_login, only: [:new, :create, :destroy, :edit]
 
@@ -85,6 +86,15 @@ class IdeasController < ApplicationController
     @header = "All Ideas"
     @ideas = Idea.all.order("created_at DESC")
     render 'explore'
+  end
+
+  def random_image
+    @urls = [
+      "https://source.unsplash.com/500x300/?nature,water",
+      "https://source.unsplash.com/500x300/?city",
+      "https://source.unsplash.com/500x300/?architechture",
+      "https://source.unsplash.com/500x300/?tech",
+    ].sample
   end
 
   private

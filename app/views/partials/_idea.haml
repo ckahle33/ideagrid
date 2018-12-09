@@ -3,7 +3,7 @@
     - if p.image.attachment
       .idea-image{style: "background-image: url('#{url_for(p.image)}')"}
     - else
-      .idea-image{style: "background-image: url('https://source.unsplash.com/random/80X80')"}
+      .idea-image{style: "background-image: url(#{random_image})"}
   .col-lg-8
     %h6.title
       = link_to p.title, idea_path(p.id)

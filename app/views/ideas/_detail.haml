@@ -8,7 +8,7 @@
           - if @idea.image.attached?
             .image-banner{style: "background-image: url('#{url_for(@idea.image)}')"}
           - else
-            .image-banner{style: "background-image: url('https://source.unsplash.com/random/460X300')"}
+            .image-banner{style: "background-image: url(#{random_image})"}
 
       .col-lg-4
         .details
