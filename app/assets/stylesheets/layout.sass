@@ -32,7 +32,7 @@ body
 h1, h2, h3, h4, h5, h6
   color: $dark
   text-shadow: none
-  margin: 1em 0 0 0
+  margin: 1em 0
 
 nav
   border-bottom: 1px solid $light
@@ -68,7 +68,8 @@ a
 .image-banner
   height: 300px
   width: 100%
-  background-size: cover
+  background-size: contain
+  background-repeat: no-repeat
   border-radius: 5px
 
 ul
@@ -315,7 +316,7 @@ input[type="submit"]
     background: $dark-turq
     opacity: 1
 
-.new_idea
+.new_idea, .edit_idea
   .form-group
     label
       width: 100%

@@ -57,13 +57,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SENDGRID_USER'],
-    :password => ENV['SENDGRID_KEY'],
-    :domain => 'ideagrid.org',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: ENV['MAILGUN_API_KEY'],
+      domain: ENV['MAILGUN_DOMAIN']
   }
+
 end

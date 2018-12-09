@@ -2,20 +2,27 @@
   .col-lg-11
     %h3
       = @idea.title
+    .row
+      .col-lg-8
+        .image
+          - if @idea.image.attached?
+            .image-banner{style: "background-image: url('#{url_for(@idea.image)}')"}
+          - else
+            .image-banner{style: "background-image: url('https://source.unsplash.com/random/460X300')"}
 
-    // break to a partial
-    .details
-      - if @idea.image.attached?
-        .image-banner{style: "background-image: url('#{url_for(@idea.image)}')"}
-      .created_by
-        = link_to @idea.user.username, user_path(@idea.user.id)
-      .created_at
-        = @idea.created_at.strftime('%b %d, %Y')
-    .tags
-      - @idea.tags.each do |tag|
-        = link_to tag.name, tags_path(tag.id), class: "tag"
-    .description
-      = @idea.description.html_safe
+      .col-lg-4
+        .details
+          = link_to "Edit", edit_idea_path(@idea), class: "tag"
+
+          .created_by
+            = link_to @idea.user.username, user_path(@idea.user.id)
+          .created_at
+            = @idea.created_at.strftime('%b %d, %Y')
+          .tags
+            - @idea.tags.each do |tag|
+              = link_to tag.name, tags_path(tag.id), class: "tag"
+          .description
+            = @idea.description.html_safe
   .col-lg-1
     - if current_user
       %button.vote.pull-right{data: {vote: "", url: vote_idea_path(@idea.id), id: @idea.id, count: @idea.votes.count, toggled: "#{user_voted?(@idea.id)}"}}

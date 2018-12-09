@@ -19,6 +19,7 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @idea = Idea.find(params[:id])
   end
 
   def update
@@ -28,7 +29,7 @@ class IdeasController < ApplicationController
     # raise 'hello'
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
-    if @idea.save!
+    if @idea.save
       @idea.image.attach(idea_params[:image])
       build_tags
       flash[:info] = "Saved!"

@@ -10,7 +10,7 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'hamlit'
 gem 'closure_tree'
-gem 'sendgrid-ruby'
+gem 'mailgun_rails'
 gem 'dotenv-rails'
 
 gem 'omniauth'

@@ -1,9 +1,9 @@
 = form_for @idea do |p|
   -# once we figure out storage, we can re-enable this
-  -# .custom-file
-  -#   %label{class: "custom-file-label", for:"customFile"}
-  -#     Choose file
-  -#   = p.file_field :image, direct_upload: true, class: "custom-file-input"
+  .custom-file
+    -# %label{class: "custom-file-label", for:"customFile"}
+    -#   Choose file
+    = p.file_field :image, direct_upload: true
   .form-group
     = p.label :title
     = p.text_field :title, class: "form-control", required: true
