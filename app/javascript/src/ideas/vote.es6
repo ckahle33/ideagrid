@@ -28,10 +28,8 @@ class Vote {
       }
     })
     .then((data) => {
-      console.log(`${data}: Posted vote`);
     })
     .catch((data) => {
-      console.log()
     })
   }
 

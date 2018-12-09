@@ -23,14 +23,23 @@ class IdeasController < ApplicationController
   end
 
   def update
+    @idea = Idea.find(params[:id])
+    if @idea.update(idea_params)
+      flash[:info] = "Idea updated"
+      redirect_to idea_path(@idea)
+    else
+      flash[:info] = "Error updating idea."
+      redirect_to idea_edit_path(@idea)
+    end
   end
 
   def create
-    # raise 'hello'
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
     if @idea.save
-      @idea.image.attach(idea_params[:image])
+      if idea_params[:image].present?
+        @idea.image.attach(idea_params[:image])
+      end
       build_tags
       flash[:info] = "Saved!"
       redirect_to root_path
