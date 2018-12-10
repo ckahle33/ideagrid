@@ -1,5 +1,4 @@
 class IdeasController < ApplicationController
-  helper_method :random_image
   skip_before_action :verify_authenticity_token
   before_action :require_login, only: [:new, :create, :destroy, :edit]
 
@@ -26,6 +25,10 @@ class IdeasController < ApplicationController
   def update
     @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
+      if idea_params[:image].present?
+        @idea.image.attach(idea_params[:image])
+      end
+      build_tags
       flash[:info] = "Idea updated"
       redirect_to idea_path(@idea)
     else
