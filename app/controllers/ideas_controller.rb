@@ -88,15 +88,6 @@ class IdeasController < ApplicationController
     render 'explore'
   end
 
-  def random_image
-    @urls = [
-      "https://source.unsplash.com/500x300/?nature,water",
-      "https://source.unsplash.com/500x300/?city",
-      "https://source.unsplash.com/500x300/?architechture",
-      "https://source.unsplash.com/500x300/?tech",
-    ].sample
-  end
-
   private
 
   def build_tags

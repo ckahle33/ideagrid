@@ -12,7 +12,8 @@
 
       .col-lg-4
         .details
-          = link_to "Edit", edit_idea_path(@idea), class: "tag"
+          - if @idea.user == current_user
+            = link_to "Edit", edit_idea_path(@idea), class: "tag"
 
           .created_by
             = link_to @idea.user.username, user_path(@idea.user.id)
