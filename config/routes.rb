@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   patch '/reset_password/:token', to: 'users#reset_password', as: 'reset_password'
   resources :users
 
+  get '/auth/:provider/callback', to: 'sessions#oauth'
+
   mount Sidekiq::Web => '/sidekiq'
 
 end

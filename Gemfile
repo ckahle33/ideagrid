@@ -14,6 +14,8 @@ gem 'mailgun_rails'
 gem 'dotenv-rails'
 
 gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
 
 gem 'sidekiq'
 gem 'sentry-raven'
