@@ -33,7 +33,7 @@ class IdeasController < ApplicationController
       redirect_to idea_path(@idea)
     else
       flash[:info] = "Error updating idea."
-      redirect_to idea_edit_path(@idea)
+      redirect_to edit_idea_path(@idea)
     end
   end
 
