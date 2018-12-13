@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
 
   def index
     @header = "All Ideas"
-    @ideas = Idea.visible.joins(:votes).group(:id).order('COUNT(votes.id) DESC')
+    @ideas = Idea.visible.by_votes
     render 'index'
   end
 
@@ -87,7 +87,7 @@ class IdeasController < ApplicationController
 
   def explore
     @header = "All Ideas"
-    @ideas = Idea.visible.joins(:votes).group(:id).order('COUNT(votes.id) DESC')
+    @ideas = Idea.visible.by_votes
     render 'explore'
   end
 

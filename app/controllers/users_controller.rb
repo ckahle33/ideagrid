@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @header = @user.username if @user
-    @ideas = @user.ideas
+    @ideas = @user.ideas.visible.by_votes
   end
 
   def new

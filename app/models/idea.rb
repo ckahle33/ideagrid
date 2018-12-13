@@ -8,6 +8,7 @@ class Idea < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
   scope :visible, ->{ where.not(private: true) }
+  scope :by_votes, -> { left_joins(:votes).group(:id).order('count(votes.id) desc')}
 
   def validate_image
     if image.attached?
