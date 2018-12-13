@@ -1,5 +1,13 @@
 = form_for @user, url: {action: "create"} do |p|
   .form-group
+    %a{href: "/auth/twitter", class: "twitter-button"}
+      = render partial: "partials/twitter_logo"
+      Log In with Twitter
+  .form-group
+    %a{href: "/auth/github", class: "github-button"}
+      = render partial: "partials/github_logo"
+      Log In with GitHub
+  .form-group
     = p.label :username
     = p.text_field :username, required: true
   .form-group
