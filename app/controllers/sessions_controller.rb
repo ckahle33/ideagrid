@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       @current_user = user
       redirect_to :root
     else
-      user = User.new(email: auth_hash.info.name, password: auth_hash['credentials']['token'], password_confirmation: auth_hash['credentials']['token'])
+      user = User.new(email: auth_hash.info.name, username: auth_hash.info.name, password: auth_hash['credentials']['token'], password_confirmation: auth_hash['credentials']['token'])
       if user.save!
         session[:user_id] = user.id
         @current_user = user
