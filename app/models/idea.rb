@@ -7,6 +7,7 @@ class Idea < ApplicationRecord
   has_many :tags, through: :idea_tags
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  scope :visible, ->{ where.not(private: true) }
 
   def validate_image
     if image.attached?
