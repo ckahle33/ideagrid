@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
 
   def index
     @header = "All Ideas"
-    @ideas = Idea.all.order("created_at DESC")
+    @ideas = Idea.where.not(private: true).joins(:votes).group(:id).order('COUNT(votes.id) DESC')
     render 'index'
   end
 
@@ -87,7 +87,7 @@ class IdeasController < ApplicationController
 
   def explore
     @header = "All Ideas"
-    @ideas = Idea.all.order("created_at DESC")
+    @ideas = Idea.where.not(private: true).joins(:votes).group(:id).order('COUNT(votes.id) DESC')
     render 'explore'
   end
 
