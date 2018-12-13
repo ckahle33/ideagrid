@@ -1,5 +1,5 @@
 .row
-  .col-lg-11
+  .col-lg-10
     %h3
       = @idea.title
     .row
@@ -24,7 +24,7 @@
               = link_to tag.name, tags_path(tag.id), class: "tag"
           .description
             = @idea.description.html_safe
-  .col-lg-1
+  .col-lg-2
     - if current_user
       %button.vote.pull-right{data: {vote: "", url: vote_idea_path(@idea.id), id: @idea.id, count: @idea.votes.count, toggled: "#{user_voted?(@idea.id)}"}}
         = fa_icon "arrow-up"
