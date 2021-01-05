@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "activestorage": "^5.2.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap.native": "^2.0.23",
     "taggle": "^1.14.0",
     "trix": "^0.12.0",
